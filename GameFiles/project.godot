@@ -1,0 +1,38 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="RPG_DEMO_20260530"
+run/main_scene="uid://cb83dvwlk3om0"
+config/features=PackedStringArray("4.6", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Enum="*uid://qux27l5h2bux"
+Data="*uid://we17n5m2vqov"
+StorageManager="*uid://st11jtu58hme"
+UiManager="*uid://bk2j3588urs3s"
+GameManager="*uid://b5b2ypeyywvl6"
+Events="*uid://d1e872gysck6v"
+Settings="*uid://ddwgtw8u1ejsb"
+AudioController="*uid://deseaqrvtp54y"
+AudioManager="*uid://bl75hdjtxhlly"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

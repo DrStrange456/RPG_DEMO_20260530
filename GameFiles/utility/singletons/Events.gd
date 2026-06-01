@@ -14,3 +14,8 @@ signal settings_video_pressed
 signal update_weapon_button
 signal update_tool_button
 signal update_item_button
+
+
+
+signal hide_buttons_and_tod
+signal show_buttons_and_tod

@@ -2,8 +2,8 @@ class_name Audio_Controller
 extends Node
 
 
-func _ready():
-	print("Audio Manager ready at: ", Time.get_ticks_msec())
+#func _ready():
+	#print("Audio Manager ready at: ", Time.get_ticks_msec())
 
 
 func play_music(val):

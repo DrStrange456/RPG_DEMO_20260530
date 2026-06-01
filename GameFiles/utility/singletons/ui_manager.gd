@@ -6,7 +6,7 @@ var active_ui: Node = null
 func _ready():
 #	Even though scene is paused, still accept input from UI
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	print("UI Manager ready at: ", Time.get_ticks_msec())
+	#print("UI Manager ready at: ", Time.get_ticks_msec())
 
 
 func _input(event: InputEvent) -> void:

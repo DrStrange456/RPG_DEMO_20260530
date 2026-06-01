@@ -1,7 +1,7 @@
 extends Node
 
-func _ready():
-	print("Data ready at: ", Time.get_ticks_msec())
+#func _ready():
+	#print("Data ready at: ", Time.get_ticks_msec())
 
 
 const TILE_SIZE = 16

@@ -1,7 +1,7 @@
 extends Node
 
-func _ready():
-	print("Game Manager ready at: ", Time.get_ticks_msec())
+#func _ready():
+	#print("Game Manager ready at: ", Time.get_ticks_msec())
 
 
 var world_scene = preload("res://scenes/levels/dev_starter_world.tscn")

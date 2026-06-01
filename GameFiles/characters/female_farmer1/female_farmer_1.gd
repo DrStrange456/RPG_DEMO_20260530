@@ -54,6 +54,10 @@ func _ready() -> void:
 	animation_player.active = true
 	reticleComp.visible = true
 	reticleComp.init_detectors_toFalse()
+	
+	print("Time to playable: ",
+		Time.get_ticks_msec() - StartupTimer.launch_time,
+		" ms")
 
 func _process(_delta: float) -> void:
 	update_interaction_target()

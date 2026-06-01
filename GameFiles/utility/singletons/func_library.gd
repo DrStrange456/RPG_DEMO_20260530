@@ -1,7 +1,7 @@
 extends Node
 
-func _ready():
-	print("Func Library ready at: ", Time.get_ticks_msec())
+#func _ready():
+	#print("Func Library ready at: ", Time.get_ticks_msec())
 
 # TILEMAPLAYER
 func is_hit_location_valid_tml(tm: TileMapLayer, hitLoc: Vector2)->bool:

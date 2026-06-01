@@ -16,7 +16,7 @@ var CONFIG_SOUND_MUSIC = 75
 
 func _ready():
 	load_settings_from_config_file()
-	print("Settings ready at: ", Time.get_ticks_msec())
+	#print("Settings ready at: ", Time.get_ticks_msec())
 
 func load_settings_from_config_file() -> void:
 	var config = ConfigFile.new()

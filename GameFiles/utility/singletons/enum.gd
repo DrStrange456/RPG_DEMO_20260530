@@ -1,7 +1,7 @@
 extends Node
 
-func _ready():
-	print("Enum ready at: ", Time.get_ticks_msec())
+#func _ready():
+	#print("Enum ready at: ", Time.get_ticks_msec())
 
 
 enum Style {F_BODY,M_BODY,F_HAIR,M_HAIR,F_SHIRT,M_SHIRT,F_PANTS,M_PANTS,F_SHOES,M_SHOES}

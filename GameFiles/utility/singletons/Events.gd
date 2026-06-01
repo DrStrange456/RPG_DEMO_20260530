@@ -1,7 +1,7 @@
 extends Node
 
-func _ready():
-	print("Events ready at: ", Time.get_ticks_msec())
+#func _ready():
+	#print("Events ready at: ", Time.get_ticks_msec())
 
 
 # Sample Call:

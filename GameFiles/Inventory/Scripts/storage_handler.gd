@@ -15,7 +15,7 @@ func _ready() -> void:
 	for item in items:
 		register_resource(item)
 	
-	print("Storage Manager ready at: ", Time.get_ticks_msec())
+	#print("Storage Manager ready at: ", Time.get_ticks_msec())
 	#var carrot = load("res://resources/crop_carrot.tres")
 	#var tomato = load("res://resources/crop_tomato.tres")
 	#var strawberry = load("res://resources/crop_strawberry.tres")

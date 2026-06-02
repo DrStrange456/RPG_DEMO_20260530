@@ -15,16 +15,12 @@ func _ready() -> void:
 func _input(_event: InputEvent) -> void:
 	if plyr and player_within_range:
 		if Input.is_action_just_pressed("ui_cancel"):
-			var tod = find_anywhere("TimeOfDayUI")
-			tod.visible = true
 			GameManager.glPlayerRef._attempt_exit_store()
 			get_viewport().set_input_as_handled()  # Mark event as handled
 		
 		if Input.is_action_just_pressed("activate"):
-			var gen_str = find_anywhere("general_store")
-			var tod = find_anywhere("TimeOfDayUI")
+			var gen_str = FuncLibrary.find_anywhere("general_store")
 			gen_str.visible = true
-			tod.visible = false
 			UiManager.active_ui = gen_str
 			GameManager.glPlayerRef.state = Enum.State.SHOP
 			get_viewport().set_input_as_handled()  # Mark event as handled
@@ -63,36 +59,3 @@ func interact_disabled(body: Node2D):
 		Events.emit_signal("hide_shop_icon")
 		player_within_range = false
 		plyr = body
-
-
-
-
-
-
-func find_anywhere(name1: String) -> Node:
-	var tree := get_tree()
-	
-	# 1. Try to get autoloads
-	var autoloads = ProjectSettings.get_setting("application/config/autoloads")
-	if autoloads != null:
-		for autoload_name in autoloads.keys():
-			var singleton = tree.get_first_node_in_group(autoload_name)
-			if singleton:
-				if singleton.name == name1:
-					return singleton
-				var found = singleton.find_child(name1, true)
-				if found:
-					return found
-
-	# 2. Try current scene
-	if tree:
-		if tree.current_scene:
-			var found = tree.current_scene.find_child(name1, true)
-			if found:
-				return found
-
-	# 3. Try the root (includes autoloads + main viewport)
-	return tree.root.find_child(name1, true, false)
-
-
-# Bottom 

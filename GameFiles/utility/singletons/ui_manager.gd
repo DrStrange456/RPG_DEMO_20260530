@@ -35,6 +35,7 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("ui_cancel"):
 			var pause_screen: Control = find_anywhere("PauseScreen")
 			var gen_str: Control = find_anywhere("general_store")
+			var tod = find_anywhere("TimeOfDayUI")
 			
 			if active_ui:
 				if active_ui.is_in_group("storage_chests"):
@@ -49,6 +50,7 @@ func _input(event: InputEvent) -> void:
 				# Player activated pause screen from No UI shown
 				get_tree().paused = true
 				pause_screen.visible = true
+				tod.visible = true
 				active_ui = pause_screen
 				pause_screen._quick_load_default()
 				return
@@ -59,9 +61,11 @@ func _input(event: InputEvent) -> void:
 
 func return_to_default_ui():
 	var pause_screen: Control = find_anywhere("PauseScreen")
+	var tod = find_anywhere("TimeOfDayUI")
 	
 	get_tree().paused = false
 	pause_screen.visible = false
+	tod.visible = true
 	active_ui = null
 	Events.emit_signal("update_weapon_button")
 	Events.emit_signal("update_tool_button")

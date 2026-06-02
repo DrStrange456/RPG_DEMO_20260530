@@ -125,13 +125,6 @@ func get_basic_input(delta):
 		if state == Enum.State.DEFAULT:
 			if current_crop:
 				harvest_receiver.receive_crop(current_crop)
-	#if Input.is_action_just_released("ui_cancel"):
-		#if state == Enum.State.SHOP:
-			#if current_interactable:
-				#var gen_str = FuncLibrary.find_anywhere("general_store")
-				#gen_str.visible = false
-				#UiManager.active_ui = null
-				#state = Enum.State.DEFAULT  # Return to game
 
 func animate():
 	if direction:

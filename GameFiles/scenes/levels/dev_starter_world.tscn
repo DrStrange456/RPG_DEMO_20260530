@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bdu5fash6e1gm" path="res://scenes/objects/player_house.tscn" id="3_ibmid"]
 [ext_resource type="Texture2D" uid="uid://d3p4m5ch3sonw" path="res://assets/AAA-TileSets/Craftland/Craftland Terrain/32x32/CL_MainLev.png" id="3_kpaqn"]
 [ext_resource type="PackedScene" uid="uid://bedigkxthgwn4" path="res://scenes/UI/time_of_day_ui.tscn" id="3_wa1is"]
+[ext_resource type="Texture2D" uid="uid://bsmvgrg8cnvlm" path="res://assets/Items/Weapons/sword_lv2.png" id="5_q502d"]
+[ext_resource type="Texture2D" uid="uid://bqfr3d1jskt6c" path="res://assets/Items/Tools/axe_lv1.png" id="6_cxtfx"]
+[ext_resource type="Texture2D" uid="uid://cg4pwmht6unge" path="res://assets/icons/seeds_carrot.png" id="7_4fb74"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0n0ph"]
 texture = ExtResource("3_kpaqn")
@@ -3265,6 +3268,32 @@ visible = false
 
 [node name="TimeOfDayUI" parent="UI" unique_id=2070355975 instance=ExtResource("3_wa1is")]
 
+[node name="btnWEAPON" type="Button" parent="UI" unique_id=1089754095]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 24.0
+offset_top = 576.0
+offset_right = 64.0
+offset_bottom = 616.0
+icon = ExtResource("5_q502d")
+
+[node name="btnTOOL" type="Button" parent="UI" unique_id=741349137]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 80.0
+offset_top = 576.0
+offset_right = 120.0
+offset_bottom = 616.0
+icon = ExtResource("6_cxtfx")
+
+[node name="btnITEM" type="Button" parent="UI" unique_id=187490153]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 136.0
+offset_top = 576.0
+offset_right = 176.0
+offset_bottom = 616.0
+icon = ExtResource("7_4fb74")
+
+[node name="Storage_Bin" type="Node2D" parent="UI" unique_id=1626639135]
+
 [node name="World" type="Node2D" parent="." unique_id=1837297623]
 
 [node name="Layers" type="Node2D" parent="World" unique_id=262013582]
@@ -3301,3 +3330,7 @@ y_sort_enabled = true
 position = Vector2(815, -82)
 
 [node name="Crops" type="Node2D" parent="World" unique_id=1544415318]
+
+[connection signal="pressed" from="UI/btnWEAPON" to="." method="_on_btn_weapon_pressed"]
+[connection signal="pressed" from="UI/btnTOOL" to="." method="_on_btn_tool_pressed"]
+[connection signal="pressed" from="UI/btnITEM" to="." method="_on_btn_item_pressed"]

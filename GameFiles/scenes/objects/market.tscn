@@ -36,6 +36,7 @@ region_enabled = true
 region_rect = Rect2(200, 1400, 120, 80)
 
 [node name="market_interactor" type="Area2D" parent="." unique_id=1865870005]
+visible = false
 position = Vector2(-1, 25)
 collision_layer = 2
 collision_mask = 2

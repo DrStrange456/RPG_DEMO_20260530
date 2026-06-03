@@ -17,6 +17,7 @@ func _input(_event: InputEvent) -> void:
 		if Input.is_action_just_pressed("ui_cancel"):
 			var tod = find_anywhere("TimeOfDayUI")
 			tod.visible = true
+			Events.emit_signal("show_buttons_and_tod")
 			GameManager.glPlayerRef._attempt_exit_store()
 			get_viewport().set_input_as_handled()  # Mark event as handled
 		
@@ -25,6 +26,7 @@ func _input(_event: InputEvent) -> void:
 			var tod = find_anywhere("TimeOfDayUI")
 			gen_str.visible = true
 			tod.visible = false
+			Events.emit_signal("hide_buttons_and_tod")
 			UiManager.active_ui = gen_str
 			GameManager.glPlayerRef.state = Enum.State.SHOP
 			get_viewport().set_input_as_handled()  # Mark event as handled

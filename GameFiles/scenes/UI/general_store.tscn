@@ -31,10 +31,9 @@ offset_left = 31.0
 offset_top = 61.0
 offset_right = 1125.0
 offset_bottom = 631.0
-current_tab = 1
+current_tab = 0
 
 [node name="BUY" type="TabBar" parent="TabContainer" unique_id=1887473614]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -108,10 +107,10 @@ layout_mode = 2
 scale = Vector2(2, 2)
 
 [node name="MainInventory" parent="TabContainer/BUY/PlayerInventory" unique_id=1355165246 instance=ExtResource("2_w8hr2")]
-offset_left = 278.5
-offset_top = 58.0
-offset_right = 318.5
-offset_bottom = 98.0
+offset_left = 153.0
+offset_top = 46.5
+offset_right = 193.0
+offset_bottom = 86.5
 
 [node name="CreditsIndicator" type="Node2D" parent="TabContainer/BUY" unique_id=1961847088]
 
@@ -143,6 +142,7 @@ wait_time = 0.1
 autostart = true
 
 [node name="SELL" type="TabBar" parent="TabContainer" unique_id=1912499540]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 

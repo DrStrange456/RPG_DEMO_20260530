@@ -2,6 +2,7 @@ class_name UIManager
 extends Node
 
 var active_ui: Node = null
+var active_sell_ui: bool = false
 
 func _ready():
 #	Even though scene is paused, still accept input from UI

@@ -84,7 +84,9 @@ func _on_btn_set_qty_max_pressed():
 	txt_quantity.text = str(item_Slot_Qty)
 	txt_sell_amount.text = str(calc_net_gain(item_name,item_Slot_Qty))
 func _on_btn_cancel_pressed():
+	UiManager.active_sell_ui = false
 	self.visible = false
 func _on_btn_accept_pressed():
 	build_selling_block.emit(item_name,int(txt_quantity.text),slot_node.get_index())
+	UiManager.active_sell_ui = false
 	self.visible = false

@@ -107,16 +107,17 @@ func sell_item_clicked(slot: Control):
 	if slot:
 		var slot_indx = slot.get_index()
 		var sell_quantity_container = $TabContainer/SELL/SellQuantityGrid.get_children()
-		#if already set for sale, reset. else, continue
+		# if already set for sale, reset. else, continue
 		if sell_quantity_container[slot_indx].get_child(0).self_modulate.a == 1:
 			#reset
 			sell_quantity_container[slot_indx].get_child(0).text = "0"
 			sell_quantity_container[slot_indx].get_child(0).self_modulate.a = 0
 			# remove item from selling list
 			for m in items_to_be_sold:
-				if m.invSlotNum == slot.slot_index:
+				if m.invSlotNum == slot_indx:
 					items_to_be_sold.erase(m)
 		else:
+			# show sell quantity text
 			var null_check = GameManager.PLAYER_INVENTORY_TEST[slot.get_index()][0]
 			if null_check:  # continue if returns not null value
 				open_sell_menu(slot)
@@ -145,6 +146,7 @@ func open_sell_menu(slot: Control):
 		market_item_sell_ui.set_slotQuantity(qnty)
 		market_item_sell_ui.setup()
 		market_item_sell_ui.set_slotNode(slot)
+		UiManager.active_sell_ui = true
 
 func _on_market_item_sell_ui_build_selling_block(nm, qty, slot_num):
 	var sell_quantity_container = $TabContainer/SELL/SellQuantityGrid.get_children()

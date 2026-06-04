@@ -15,6 +15,10 @@ func _ready() -> void:
 func _input(_event: InputEvent) -> void:
 	if plyr and player_within_range:
 		if Input.is_action_just_pressed("ui_cancel"):
+			# ignore if market sell ui
+			if UiManager.active_sell_ui: 
+				return
+			# 
 			var tod = find_anywhere("TimeOfDayUI")
 			tod.visible = true
 			Events.emit_signal("show_buttons_and_tod")

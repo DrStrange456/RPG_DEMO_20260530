@@ -1,9 +1,7 @@
 [gd_scene format=4 uid="uid://cb83dvwlk3om0"]
 
-[ext_resource type="PackedScene" uid="uid://ddexedh883cvx" path="res://scenes/UI/pause_screen.tscn" id="1_1crkf"]
 [ext_resource type="PackedScene" uid="uid://d057cdpboy6im" path="res://characters/female_farmer1/female_farmer1.tscn" id="1_iswvf"]
 [ext_resource type="Script" uid="uid://omrcmajpcgdp" path="res://scenes/levels/dev_starter_world.gd" id="1_wa1is"]
-[ext_resource type="PackedScene" uid="uid://b2seskq0f78b0" path="res://scenes/UI/general_store.tscn" id="2_kpaqn"]
 [ext_resource type="PackedScene" uid="uid://bdu5fash6e1gm" path="res://scenes/objects/player_house.tscn" id="3_ibmid"]
 [ext_resource type="Texture2D" uid="uid://d3p4m5ch3sonw" path="res://assets/AAA-TileSets/Craftland/Craftland Terrain/32x32/CL_MainLev.png" id="3_kpaqn"]
 [ext_resource type="PackedScene" uid="uid://bedigkxthgwn4" path="res://scenes/UI/time_of_day_ui.tscn" id="3_wa1is"]
@@ -3296,13 +3294,7 @@ metadata/_edit_lock_ = true
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
-[node name="PauseScreen" parent="UI" unique_id=1211049368 instance=ExtResource("1_1crkf")]
-process_mode = 3
-visible = false
-
-[node name="general_store" parent="UI" unique_id=1920318109 instance=ExtResource("2_kpaqn")]
-process_mode = 3
-visible = false
+[node name="WindowContainer" type="Node2D" parent="UI" unique_id=1620460392]
 
 [node name="World" type="Node2D" parent="." unique_id=1837297623]
 

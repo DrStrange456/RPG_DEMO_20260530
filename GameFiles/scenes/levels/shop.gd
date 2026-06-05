@@ -13,6 +13,9 @@ func _ready() -> void:
 
 
 func _input(_event: InputEvent) -> void:
+	
+	# FIXME: This should be handled in the UI_Manager autoload
+	
 	if plyr and player_within_range:
 		if Input.is_action_just_pressed("ui_cancel"):
 			# ignore if market sell ui
@@ -58,14 +61,12 @@ func _set_market_open():
 
 func interact_enabled(body: Node2D):
 	if body.is_in_group("player"):
-		#$interact_icon.visible = true
 		Events.emit_signal("show_shop_icon")
 		player_within_range = true
 		plyr = body
 
 func interact_disabled(body: Node2D):
 	if body.is_in_group("player"):
-		#$interact_icon.visible = false
 		Events.emit_signal("hide_shop_icon")
 		player_within_range = false
 		plyr = body

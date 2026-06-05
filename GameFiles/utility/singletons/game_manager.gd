@@ -32,6 +32,8 @@ var selected_tool
 var selected_item = preload("res://resources/seeds_strawberry.tres")
 
 
+var current_state = Enum.UIState.NONE
+
 
 var PLAYER_INVENTORY_TEST: Dictionary = {
 		0: ["res://resources/seeds_turnip.tres", 98, true],

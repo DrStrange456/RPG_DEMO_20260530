@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://ek8xkrnetotn"]
+
+[ext_resource type="Script" uid="uid://dodyglqii7ylq" path="res://Inventory/Scripts/main_inventory_ui.gd" id="1_ulete"]
+[ext_resource type="Texture2D" uid="uid://dbk4ab6jsmke3" path="res://assets/UI/Pause/BG.png" id="2_0gdll"]
+[ext_resource type="Script" uid="uid://culwm761ctewy" path="res://Inventory/Scripts/main_inventory_controller.gd" id="2_ugsjq"]
+[ext_resource type="PackedScene" uid="uid://lt04e7ajlebf" path="res://Inventory/inventory_slot_ui.tscn" id="3_ithvx"]
+[ext_resource type="Texture2D" uid="uid://bhlp8nkvd1vdu" path="res://assets/UI/Pause/Window.png" id="3_s1irv"]
+[ext_resource type="Texture2D" uid="uid://ditoo2epdbb8u" path="res://assets/UI/Pause/Table.png" id="6_s1irv"]
+[ext_resource type="FontFile" uid="uid://b7s2fv2laugyl" path="res://assets/fonts/font_pixelmix.ttf" id="7_78dsd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_78dsd"]
+bg_color = Color(0.004019165, 0.004019165, 0.004019165, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_78dsd"]
+texture = ExtResource("6_s1irv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s1irv"]
+texture = ExtResource("6_s1irv")
+
+[node name="PlayerInventory" type="Control" unique_id=1355165246]
+layout_mode = 3
+offset_left = 448.0
+offset_top = 253.0
+offset_right = 448.0
+offset_bottom = 253.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+script = ExtResource("1_ulete")
+
+[node name="Panel" type="Panel" parent="." unique_id=437226229]
+layout_mode = 0
+offset_left = -928.0
+offset_top = -479.33334
+offset_right = 1233.0
+offset_bottom = 611.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_78dsd")
+
+[node name="BG" type="Sprite2D" parent="." unique_id=552223231]
+position = Vector2(84.99796, 48.37947)
+rotation = 1.5707964
+scale = Vector2(0.41184294, 0.40837127)
+texture = ExtResource("2_0gdll")
+
+[node name="Panel_Skin" type="NinePatchRect" parent="." unique_id=1541569540]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.333336
+offset_top = -134.0
+offset_right = 214.66666
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_s1irv")
+region_rect = Rect2(0, 0, 940, 1080)
+
+[node name="Panel_Title" type="Label" parent="." unique_id=357266451]
+layout_mode = 0
+offset_left = 20.0
+offset_top = -119.333336
+offset_right = 150.0
+offset_bottom = -99.333336
+theme_override_fonts/font = ExtResource("7_78dsd")
+theme_override_font_sizes/font_size = 20
+text = "INVENTORY"
+
+[node name="MainInventoryController" type="GridContainer" parent="." unique_id=932542009]
+layout_mode = 0
+offset_left = -23.333334
+offset_top = -61.333336
+offset_right = 192.66667
+offset_bottom = 22.666664
+mouse_filter = 2
+columns = 5
+script = ExtResource("2_ugsjq")
+
+[node name="InventorySlotUI" parent="MainInventoryController" unique_id=119770590 instance=ExtResource("3_ithvx")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+
+[node name="InventorySlotUI2" parent="MainInventoryController" unique_id=1063310907 instance=ExtResource("3_ithvx")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+indx = 1
+
+[node name="InventorySlotUI3" parent="MainInventoryController" unique_id=1606278055 instance=ExtResource("3_ithvx")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+indx = 2
+
+[node name="InventorySlotUI4" parent="MainInventoryController" unique_id=1942417292 instance=ExtResource("3_ithvx")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+indx = 3
+
+[node name="InventorySlotUI5" parent="MainInventoryController" unique_id=757594139 instance=ExtResource("3_ithvx")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+indx = 4
+
+[node name="InventorySlotUI6" parent="MainInventoryController" unique_id=952641919 instance=ExtResource("3_ithvx")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+indx = 5
+
+[node name="InventorySlotUI7" parent="MainInventoryController" unique_id=485646415 instance=ExtResource("3_ithvx")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+indx = 6
+
+[node name="InventorySlotUI8" parent="MainInventoryController" unique_id=851521994 instance=ExtResource("3_ithvx")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+indx = 7
+
+[node name="InventorySlotUI9" parent="MainInventoryController" unique_id=1401840983 instance=ExtResource("3_ithvx")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+indx = 8
+
+[node name="InventorySlotUI10" parent="MainInventoryController" unique_id=1995275335 instance=ExtResource("3_ithvx")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+indx = 9
+
+[node name="OptionButtons" type="Node2D" parent="." unique_id=1766532277]
+
+[node name="btnSort_Inv" type="Button" parent="OptionButtons" unique_id=135522976]
+offset_left = 112.0
+offset_top = 181.33334
+offset_right = 192.0
+offset_bottom = 212.33334
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxTexture_78dsd")
+theme_override_styles/hover = SubResource("StyleBoxTexture_s1irv")
+text = "Sort"
+icon_alignment = 1
+
+[connection signal="pressed" from="OptionButtons/btnSort_Inv" to="." method="_on_btn_sort_inv_pressed"]

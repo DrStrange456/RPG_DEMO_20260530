@@ -18,7 +18,9 @@ texture = ExtResource("6_s1irv")
 texture = ExtResource("6_s1irv")
 
 [node name="PlayerInventory" type="Control" unique_id=1355165246]
+process_mode = 3
 layout_mode = 3
+anchors_preset = 0
 offset_left = 448.0
 offset_top = 253.0
 offset_right = 448.0

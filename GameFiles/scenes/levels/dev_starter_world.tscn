@@ -3260,18 +3260,9 @@ script = ExtResource("1_wa1is")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=190749311]
 
-[node name="PauseScreen" parent="UI" unique_id=1211049368 instance=ExtResource("1_1crkf")]
-process_mode = 3
-visible = false
+[node name="HUD" type="Node2D" parent="UI" unique_id=260367078]
 
-[node name="general_store" parent="UI" unique_id=1920318109 instance=ExtResource("2_kpaqn")]
-process_mode = 3
-visible = false
-
-[node name="TimeOfDayUI" parent="UI" unique_id=2070355975 instance=ExtResource("3_wa1is")]
-mouse_filter = 2
-
-[node name="btnWEAPON" type="Button" parent="UI" unique_id=1089754095]
+[node name="btnWEAPON" type="Button" parent="UI/HUD" unique_id=1089754095]
 custom_minimum_size = Vector2(40, 40)
 offset_left = 64.0
 offset_top = 528.0
@@ -3279,8 +3270,9 @@ offset_right = 104.0
 offset_bottom = 569.0
 scale = Vector2(2, 2)
 icon = ExtResource("5_q502d")
+metadata/_edit_lock_ = true
 
-[node name="btnTOOL" type="Button" parent="UI" unique_id=741349137]
+[node name="btnTOOL" type="Button" parent="UI/HUD" unique_id=741349137]
 custom_minimum_size = Vector2(40, 40)
 offset_left = 160.0
 offset_top = 528.0
@@ -3288,8 +3280,9 @@ offset_right = 200.0
 offset_bottom = 568.0
 scale = Vector2(2, 2)
 icon = ExtResource("6_cxtfx")
+metadata/_edit_lock_ = true
 
-[node name="btnITEM" type="Button" parent="UI" unique_id=187490153]
+[node name="btnITEM" type="Button" parent="UI/HUD" unique_id=187490153]
 custom_minimum_size = Vector2(40, 40)
 offset_left = 256.0
 offset_top = 528.0
@@ -3297,8 +3290,19 @@ offset_right = 296.0
 offset_bottom = 568.0
 scale = Vector2(2, 2)
 icon = ExtResource("7_4fb74")
+metadata/_edit_lock_ = true
 
-[node name="Storage_Bin" type="Node2D" parent="UI" unique_id=1626639135]
+[node name="TimeOfDayUI" parent="UI/HUD" unique_id=2070355975 instance=ExtResource("3_wa1is")]
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="PauseScreen" parent="UI" unique_id=1211049368 instance=ExtResource("1_1crkf")]
+process_mode = 3
+visible = false
+
+[node name="general_store" parent="UI" unique_id=1920318109 instance=ExtResource("2_kpaqn")]
+process_mode = 3
+visible = false
 
 [node name="World" type="Node2D" parent="." unique_id=1837297623]
 
@@ -3329,10 +3333,11 @@ y_sort_enabled = true
 
 [node name="female_farmer1" parent="World/Objects" unique_id=543434268 instance=ExtResource("1_iswvf")]
 y_sort_enabled = true
-position = Vector2(832, 139)
+position = Vector2(1146, 94)
 
 [node name="Camera2D" type="Camera2D" parent="World/Objects/female_farmer1" unique_id=465719586]
 zoom = Vector2(2, 2)
+metadata/_edit_lock_ = true
 
 [node name="player_house" parent="World/Objects" unique_id=1189063552 instance=ExtResource("3_ibmid")]
 y_sort_enabled = true
@@ -3343,6 +3348,8 @@ position = Vector2(1144, -40)
 
 [node name="Crops" type="Node2D" parent="World" unique_id=1544415318]
 
-[connection signal="pressed" from="UI/btnWEAPON" to="." method="_on_btn_weapon_pressed"]
-[connection signal="pressed" from="UI/btnTOOL" to="." method="_on_btn_tool_pressed"]
-[connection signal="pressed" from="UI/btnITEM" to="." method="_on_btn_item_pressed"]
+[node name="Storage_Bin" type="Node2D" parent="World" unique_id=1626639135]
+
+[connection signal="pressed" from="UI/HUD/btnWEAPON" to="." method="_on_btn_weapon_pressed"]
+[connection signal="pressed" from="UI/HUD/btnTOOL" to="." method="_on_btn_tool_pressed"]
+[connection signal="pressed" from="UI/HUD/btnITEM" to="." method="_on_btn_item_pressed"]

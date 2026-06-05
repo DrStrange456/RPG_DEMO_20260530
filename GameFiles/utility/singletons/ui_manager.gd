@@ -58,8 +58,6 @@ func _input(event: InputEvent) -> void:
 			
 			return_to_default_ui()
 
-
-
 func return_to_default_ui():
 	var pause_screen: Control = find_anywhere("PauseScreen")
 	var tod = find_anywhere("TimeOfDayUI")
@@ -71,9 +69,6 @@ func return_to_default_ui():
 	Events.emit_signal("update_weapon_button")
 	Events.emit_signal("update_tool_button")
 	Events.emit_signal("update_item_button")
-
-
-
 
 
 func find_anywhere(name1: String) -> Node:

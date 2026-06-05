@@ -2,6 +2,7 @@ class_name UIManager
 extends Node
 
 var inv_scene = preload("res://scenes/UI/PlayerInventory_UI.tscn")
+var pause_scene = preload("res://scenes/UI/new_pause_screen.tscn")
 var current_window: Control = null
 
 
@@ -18,6 +19,8 @@ func _unhandled_input(event):
 		open_character()
 	elif event.is_action_pressed("activate"):
 		pass
+	elif event.is_action_pressed("open_pause"):
+		open_pause()
 	elif event.is_action_pressed("ui_cancel"):
 		close_current_window()
 
@@ -30,6 +33,15 @@ func open_inventory():
 	current_window = inv_scene.instantiate()
 	window_container.add_child(current_window)
 	get_tree().paused = true
+
+func open_pause():
+	close_current_window()
+
+	var window_container: Node2D = find_anywhere("WindowContainer")
+	current_window = pause_scene.instantiate()
+	window_container.add_child(current_window)
+	get_tree().paused = true
+
 
 func open_character():
 	pass

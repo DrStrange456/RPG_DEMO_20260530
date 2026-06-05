@@ -1,13 +1,13 @@
 extends Node2D
 
-@onready var pause_screen: Control = $UI/PauseScreen
-@onready var general_store: Control = $UI/general_store
-@onready var time_of_day_ui: Control = $UI/TimeOfDayUI
+#@onready var pause_screen: Control = $UI/PauseScreen
+#@onready var general_store: Control = $UI/general_store
+#@onready var time_of_day_ui: Control = $UI/TimeOfDayUI
 
 @onready var female_farmer_1: CharacterBody2D = $World/Objects/female_farmer1
-@onready var btn_weapon: Button = $UI/btnWEAPON
-@onready var btn_tool: Button = $UI/btnTOOL
-@onready var btn_item: Button = $UI/btnITEM
+#@onready var btn_weapon: Button = $UI/btnWEAPON
+#@onready var btn_tool: Button = $UI/btnTOOL
+#@onready var btn_item: Button = $UI/btnITEM
 
 
 

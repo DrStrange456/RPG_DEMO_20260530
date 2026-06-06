@@ -11,8 +11,8 @@ var current_tween: Tween
 
 
 # Set these in _ready() after positioning your UI
-var open_position: Vector2 = Vector2(-56,-134)
-var closed_position: Vector2 = Vector2(-56,308)
+#var open_position: Vector2 = Vector2(-56,-134)
+#var closed_position: Vector2 = Vector2(-56,308)
 
 
 
@@ -43,7 +43,9 @@ func open_inventory():
 
 	current_window = inv_scene.instantiate()
 	window_container.add_child(current_window)
-
+	
+	current_window = current_window.find_child("INVENTORYUI",true)
+	
 	# Make sure the window scales from its center
 	current_window.pivot_offset = current_window.size / 2.0
 
@@ -87,6 +89,7 @@ func open_pause():
 
 	# Initial state
 	current_window.visible = true
+	current_window.pivot_offset = current_window.size / 2.0
 	current_window.scale = Vector2(0.8, 0.8)
 	current_window.modulate.a = 0.0
 

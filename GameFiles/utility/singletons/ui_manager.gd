@@ -36,6 +36,9 @@ func _unhandled_input(event):
 
 
 
+
+
+
 func open_inventory():
 	close_current_window()
 
@@ -115,9 +118,6 @@ func open_pause():
 	get_tree().paused = true
 	inventory_open = true
 
-
-
-
 func close_current_window():
 	if current_window == null:
 		return
@@ -149,17 +149,8 @@ func close_current_window():
 	get_tree().paused = false
 	inventory_open = false
 
-
-
-
-
 func open_character():
 	pass
-
-
-
-
-
 
 func find_anywhere(name1: String) -> Node:
 	var tree := get_tree()
@@ -185,6 +176,10 @@ func find_anywhere(name1: String) -> Node:
 
 	# 3. Try the root (includes autoloads + main viewport)
 	return tree.root.find_child(name1, true, false)
+
+
+
+
 
 
 # Bottom

@@ -21,42 +21,40 @@ texture = ExtResource("6_s1irv")
 process_mode = 3
 layout_mode = 3
 anchors_preset = 0
-offset_left = 448.0
-offset_top = 253.0
-offset_right = 448.0
-offset_bottom = 253.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.5, 1.5)
+offset_right = 578.5
+offset_bottom = 316.5
+scale = Vector2(2, 2)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 script = ExtResource("1_ulete")
 
-[node name="Panel" type="Panel" parent="." unique_id=437226229]
+[node name="INVENTORYUI" type="Node2D" parent="." unique_id=796525922]
+position = Vector2(215, 115.5)
+scale = Vector2(0.8, 0.8)
+
+[node name="Panel" type="Panel" parent="INVENTORYUI" unique_id=437226229]
 visible = false
-layout_mode = 0
-offset_left = -928.0
-offset_top = -479.33334
+offset_left = -928.00006
+offset_top = -479.33337
 offset_right = 1233.0
 offset_bottom = 611.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_78dsd")
 
-[node name="BG" type="Sprite2D" parent="." unique_id=552223231]
+[node name="BG" type="Sprite2D" parent="INVENTORYUI" unique_id=552223231]
 visible = false
-position = Vector2(84.99796, 48.37947)
+position = Vector2(84.997955, 48.37947)
 rotation = 1.5707964
-scale = Vector2(0.41184294, 0.40837127)
+scale = Vector2(0.41184294, 0.4083713)
 texture = ExtResource("2_0gdll")
 
-[node name="Panel_Skin" type="NinePatchRect" parent="." unique_id=1541569540]
-layout_mode = 1
+[node name="Panel_Skin" type="NinePatchRect" parent="INVENTORYUI" unique_id=1541569540]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -53.333336
+offset_left = -53.333344
 offset_top = -134.0
 offset_right = 214.66666
 offset_bottom = 232.0
@@ -65,8 +63,7 @@ grow_vertical = 2
 texture = ExtResource("3_s1irv")
 region_rect = Rect2(0, 0, 940, 1080)
 
-[node name="Panel_Title" type="Label" parent="." unique_id=357266451]
-layout_mode = 0
+[node name="Panel_Title" type="Label" parent="INVENTORYUI" unique_id=357266451]
 offset_left = 20.0
 offset_top = -119.333336
 offset_right = 150.0
@@ -75,78 +72,77 @@ theme_override_fonts/font = ExtResource("7_78dsd")
 theme_override_font_sizes/font_size = 20
 text = "INVENTORY"
 
-[node name="MainInventoryController" type="GridContainer" parent="." unique_id=932542009]
-layout_mode = 0
-offset_left = -23.333334
+[node name="MainInventoryController" type="GridContainer" parent="INVENTORYUI" unique_id=932542009]
+offset_left = -23.333344
 offset_top = -61.333336
-offset_right = 192.66667
+offset_right = 192.66666
 offset_bottom = 22.666664
 mouse_filter = 2
 columns = 5
 script = ExtResource("2_ugsjq")
 
-[node name="InventorySlotUI" parent="MainInventoryController" unique_id=119770590 instance=ExtResource("3_ithvx")]
+[node name="InventorySlotUI" parent="INVENTORYUI/MainInventoryController" unique_id=119770590 instance=ExtResource("3_ithvx")]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 
-[node name="InventorySlotUI2" parent="MainInventoryController" unique_id=1063310907 instance=ExtResource("3_ithvx")]
+[node name="InventorySlotUI2" parent="INVENTORYUI/MainInventoryController" unique_id=1063310907 instance=ExtResource("3_ithvx")]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 indx = 1
 
-[node name="InventorySlotUI3" parent="MainInventoryController" unique_id=1606278055 instance=ExtResource("3_ithvx")]
+[node name="InventorySlotUI3" parent="INVENTORYUI/MainInventoryController" unique_id=1606278055 instance=ExtResource("3_ithvx")]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 indx = 2
 
-[node name="InventorySlotUI4" parent="MainInventoryController" unique_id=1942417292 instance=ExtResource("3_ithvx")]
+[node name="InventorySlotUI4" parent="INVENTORYUI/MainInventoryController" unique_id=1942417292 instance=ExtResource("3_ithvx")]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 indx = 3
 
-[node name="InventorySlotUI5" parent="MainInventoryController" unique_id=757594139 instance=ExtResource("3_ithvx")]
+[node name="InventorySlotUI5" parent="INVENTORYUI/MainInventoryController" unique_id=757594139 instance=ExtResource("3_ithvx")]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 indx = 4
 
-[node name="InventorySlotUI6" parent="MainInventoryController" unique_id=952641919 instance=ExtResource("3_ithvx")]
+[node name="InventorySlotUI6" parent="INVENTORYUI/MainInventoryController" unique_id=952641919 instance=ExtResource("3_ithvx")]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 indx = 5
 
-[node name="InventorySlotUI7" parent="MainInventoryController" unique_id=485646415 instance=ExtResource("3_ithvx")]
+[node name="InventorySlotUI7" parent="INVENTORYUI/MainInventoryController" unique_id=485646415 instance=ExtResource("3_ithvx")]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 indx = 6
 
-[node name="InventorySlotUI8" parent="MainInventoryController" unique_id=851521994 instance=ExtResource("3_ithvx")]
+[node name="InventorySlotUI8" parent="INVENTORYUI/MainInventoryController" unique_id=851521994 instance=ExtResource("3_ithvx")]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 indx = 7
 
-[node name="InventorySlotUI9" parent="MainInventoryController" unique_id=1401840983 instance=ExtResource("3_ithvx")]
+[node name="InventorySlotUI9" parent="INVENTORYUI/MainInventoryController" unique_id=1401840983 instance=ExtResource("3_ithvx")]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 indx = 8
 
-[node name="InventorySlotUI10" parent="MainInventoryController" unique_id=1995275335 instance=ExtResource("3_ithvx")]
+[node name="InventorySlotUI10" parent="INVENTORYUI/MainInventoryController" unique_id=1995275335 instance=ExtResource("3_ithvx")]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 indx = 9
 
-[node name="OptionButtons" type="Node2D" parent="." unique_id=1766532277]
+[node name="OptionButtons" type="Node2D" parent="INVENTORYUI" unique_id=1766532277]
 
-[node name="btnSort_Inv" type="Button" parent="OptionButtons" unique_id=135522976]
+[node name="btnSort_Inv" type="Button" parent="INVENTORYUI/OptionButtons" unique_id=135522976]
 offset_left = 112.0
 offset_top = 181.33334
 offset_right = 192.0
@@ -158,4 +154,4 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_s1irv")
 text = "Sort"
 icon_alignment = 1
 
-[connection signal="pressed" from="OptionButtons/btnSort_Inv" to="." method="_on_btn_sort_inv_pressed"]
+[connection signal="pressed" from="INVENTORYUI/OptionButtons/btnSort_Inv" to="." method="_on_btn_sort_inv_pressed"]

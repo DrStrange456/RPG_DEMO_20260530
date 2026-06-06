@@ -1,7 +1,7 @@
 extends Control
 
 
-@onready var main_inventory_container_ui: GridContainer = $MainInventoryController
+@onready var main_inventory_container_ui: GridContainer = $INVENTORYUI/MainInventoryController
 var inventory : Array[OptiInventorySlot] = []
 
 

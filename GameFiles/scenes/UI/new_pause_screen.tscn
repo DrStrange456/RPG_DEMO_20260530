@@ -25,31 +25,32 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 64.0
-offset_top = 32.0
-offset_right = 64.0
-offset_bottom = 32.0
+offset_right = -573.5
+offset_bottom = -331.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 script = ExtResource("1_838wx")
 
-[node name="Panel2" type="Panel" parent="." unique_id=1739265535]
-layout_mode = 0
+[node name="PAUSEUI" type="Node2D" parent="." unique_id=825634281]
+position = Vector2(22, 15)
+
+[node name="Panel2" type="Panel" parent="PAUSEUI" unique_id=1739265535]
+visible = false
 offset_left = -928.0
 offset_top = -479.33334
 offset_right = 1233.0
 offset_bottom = 611.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_tyf61")
 
-[node name="BG" type="Sprite2D" parent="." unique_id=2072892219]
+[node name="BG" type="Sprite2D" parent="PAUSEUI" unique_id=2072892219]
+visible = false
 position = Vector2(256.2672, 143.18195)
 rotation = 1.5707964
 scale = Vector2(0.31403175, 0.30864966)
 texture = ExtResource("2_bxsal")
 
-[node name="Panel" type="Panel" parent="." unique_id=59301136]
-layout_mode = 0
+[node name="Panel" type="Panel" parent="PAUSEUI" unique_id=59301136]
 offset_left = 140.0
 offset_top = 4.0
 offset_right = 294.0
@@ -57,17 +58,17 @@ offset_bottom = 196.0
 scale = Vector2(1.5, 1.5)
 theme_override_styles/panel = SubResource("StyleBoxTexture_6bxme")
 
-[node name="TITLE" type="Sprite2D" parent="Panel" unique_id=509784504]
+[node name="TITLE" type="Sprite2D" parent="PAUSEUI/Panel" unique_id=509784504]
 position = Vector2(76.000015, 12.000002)
 scale = Vector2(0.32333323, 0.28389835)
 texture = ExtResource("2_0eocy")
 
-[node name="SFX" type="Sprite2D" parent="Panel" unique_id=546245879]
+[node name="SFX" type="Sprite2D" parent="PAUSEUI/Panel" unique_id=546245879]
 position = Vector2(33.375004, 89.5)
 scale = Vector2(0.08928579, 0.09047619)
 texture = ExtResource("3_r1j6r")
 
-[node name="sfx_volume" type="HSlider" parent="Panel/SFX" unique_id=2131544441]
+[node name="sfx_volume" type="HSlider" parent="PAUSEUI/Panel/SFX" unique_id=2131544441]
 offset_left = 179.19975
 offset_top = -88.42108
 offset_right = 380.79956
@@ -80,7 +81,7 @@ theme_override_styles/grabber_area = ExtResource("7_0eocy")
 value = 50.0
 metadata/_edit_use_anchors_ = true
 
-[node name="txtValue_SFX" type="Label" parent="Panel/SFX/sfx_volume" unique_id=1811744111]
+[node name="txtValue_SFX" type="Label" parent="PAUSEUI/Panel/SFX/sfx_volume" unique_id=1811744111]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.04336119
@@ -94,12 +95,12 @@ offset_bottom = 34.057
 text = "0"
 metadata/_edit_use_anchors_ = true
 
-[node name="MUSIC" type="Sprite2D" parent="Panel" unique_id=183192781]
+[node name="MUSIC" type="Sprite2D" parent="PAUSEUI/Panel" unique_id=183192781]
 position = Vector2(33.375, 117.5)
 scale = Vector2(0.084523864, 0.09047619)
 texture = ExtResource("8_u88cu")
 
-[node name="music_volume" type="HSlider" parent="Panel/MUSIC" unique_id=1679544696]
+[node name="music_volume" type="HSlider" parent="PAUSEUI/Panel/MUSIC" unique_id=1679544696]
 offset_left = 178.9436
 offset_top = -99.47363
 offset_right = 391.90118
@@ -112,7 +113,7 @@ theme_override_styles/grabber_area = ExtResource("7_0eocy")
 value = 50.0
 metadata/_edit_use_anchors_ = true
 
-[node name="txtValue_Music" type="Label" parent="Panel/MUSIC/music_volume" unique_id=832007037]
+[node name="txtValue_Music" type="Label" parent="PAUSEUI/Panel/MUSIC/music_volume" unique_id=832007037]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0293452
@@ -126,16 +127,15 @@ offset_bottom = 34.057
 text = "0"
 metadata/_edit_use_anchors_ = true
 
-[node name="Sounds" type="Node2D" parent="Panel" unique_id=287419839]
+[node name="Sounds" type="Node2D" parent="PAUSEUI/Panel" unique_id=287419839]
 
-[node name="Music_Sample" type="AudioStreamPlayer2D" parent="Panel/Sounds" unique_id=20026139]
+[node name="Music_Sample" type="AudioStreamPlayer2D" parent="PAUSEUI/Panel/Sounds" unique_id=20026139]
 stream = ExtResource("10_bxsal")
 
-[node name="SFX_Sample" type="AudioStreamPlayer2D" parent="Panel/Sounds" unique_id=2037577784]
+[node name="SFX_Sample" type="AudioStreamPlayer2D" parent="PAUSEUI/Panel/Sounds" unique_id=2037577784]
 stream = ExtResource("11_tyf61")
 
-[node name="txtReturn" type="Label" parent="." unique_id=1583577116]
-layout_mode = 0
+[node name="txtReturn" type="Label" parent="PAUSEUI" unique_id=1583577116]
 offset_left = 190.5
 offset_top = 259.0
 offset_right = 323.5
@@ -143,5 +143,5 @@ offset_bottom = 279.0
 theme_override_font_sizes/font_size = 14
 text = "Press ESC to Return"
 
-[connection signal="value_changed" from="Panel/SFX/sfx_volume" to="." method="_on_sfx_volume_value_changed"]
-[connection signal="value_changed" from="Panel/MUSIC/music_volume" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="PAUSEUI/Panel/SFX/sfx_volume" to="." method="_on_sfx_volume_value_changed"]
+[connection signal="value_changed" from="PAUSEUI/Panel/MUSIC/music_volume" to="." method="_on_music_volume_value_changed"]

@@ -1,7 +1,7 @@
 extends Control
 
-@onready var music_sample: AudioStreamPlayer2D = $Panel/Sounds/Music_Sample
-@onready var sfx_sample: AudioStreamPlayer2D = $Panel/Sounds/SFX_Sample
+@onready var music_sample: AudioStreamPlayer2D = $PAUSEUI/Panel/Sounds/Music_Sample
+@onready var sfx_sample: AudioStreamPlayer2D = $PAUSEUI/Panel/Sounds/SFX_Sample
 
 enum State {DEFAULT,INVENTORY,SETTINGS,VIDEO,AUDIO,CHARACTER}
 var ps_state 
@@ -17,11 +17,11 @@ func _ready() -> void:
 ### - Sound Options
 
 func _on_sfx_volume_value_changed(value: float) -> void:
-	$Panel/SFX/sfx_volume/txtValue_SFX.text = str(value)
+	$PAUSEUI/Panel/SFX/sfx_volume/txtValue_SFX.text = str(value)
 	apply_audio_sfx_settings()
 
 func _on_music_volume_value_changed(value: float) -> void:
-	$Panel/MUSIC/music_volume/txtValue_Music.text = str(value)
+	$PAUSEUI/Panel/MUSIC/music_volume/txtValue_Music.text = str(value)
 	apply_audio_music_settings()
 
 func apply_audio_sfx_settings():
@@ -45,9 +45,9 @@ func apply_audio_music_settings():
 func apply_global():
 	# SOUND
 	if Settings.CONFIG_SOUND_SFX or Settings.CONFIG_SOUND_SFX == 0:
-		$Panel/SFX/sfx_volume.value = Settings.CONFIG_SOUND_SFX
+		$PAUSEUI/Panel/SFX/sfx_volume.value = Settings.CONFIG_SOUND_SFX
 	if Settings.CONFIG_SOUND_MUSIC or Settings.CONFIG_SOUND_MUSIC == 0:
-		$Panel/MUSIC/music_volume.value = Settings.CONFIG_SOUND_MUSIC
+		$PAUSEUI/Panel/MUSIC/music_volume.value = Settings.CONFIG_SOUND_MUSIC
 
 func update_global():
 	Settings.CONFIG_SOUND_MUSIC = $SoundUI/music_volume.value

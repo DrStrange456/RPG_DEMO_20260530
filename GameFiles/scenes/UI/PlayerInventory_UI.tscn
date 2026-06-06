@@ -1,15 +1,11 @@
 [gd_scene format=3 uid="uid://ek8xkrnetotn"]
 
 [ext_resource type="Script" uid="uid://dodyglqii7ylq" path="res://Inventory/Scripts/main_inventory_ui.gd" id="1_ulete"]
-[ext_resource type="Texture2D" uid="uid://dbk4ab6jsmke3" path="res://assets/UI/Pause/BG.png" id="2_0gdll"]
 [ext_resource type="Script" uid="uid://culwm761ctewy" path="res://Inventory/Scripts/main_inventory_controller.gd" id="2_ugsjq"]
 [ext_resource type="PackedScene" uid="uid://lt04e7ajlebf" path="res://Inventory/inventory_slot_ui.tscn" id="3_ithvx"]
 [ext_resource type="Texture2D" uid="uid://bhlp8nkvd1vdu" path="res://assets/UI/Pause/Window.png" id="3_s1irv"]
 [ext_resource type="Texture2D" uid="uid://ditoo2epdbb8u" path="res://assets/UI/Pause/Table.png" id="6_s1irv"]
 [ext_resource type="FontFile" uid="uid://b7s2fv2laugyl" path="res://assets/fonts/font_pixelmix.ttf" id="7_78dsd"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_78dsd"]
-bg_color = Color(0.004019165, 0.004019165, 0.004019165, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_78dsd"]
 texture = ExtResource("6_s1irv")
@@ -20,63 +16,51 @@ texture = ExtResource("6_s1irv")
 [node name="PlayerInventory" type="Control" unique_id=1355165246]
 process_mode = 3
 layout_mode = 3
-anchors_preset = 0
-offset_right = 578.5
-offset_bottom = 316.5
-scale = Vector2(2, 2)
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 script = ExtResource("1_ulete")
 
-[node name="INVENTORYUI" type="Node2D" parent="." unique_id=796525922]
-position = Vector2(215, 115.5)
-scale = Vector2(0.8, 0.8)
-
-[node name="Panel" type="Panel" parent="INVENTORYUI" unique_id=437226229]
-visible = false
-offset_left = -928.00006
-offset_top = -479.33337
-offset_right = 1233.0
-offset_bottom = 611.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_78dsd")
-
-[node name="BG" type="Sprite2D" parent="INVENTORYUI" unique_id=552223231]
-visible = false
-position = Vector2(84.997955, 48.37947)
-rotation = 1.5707964
-scale = Vector2(0.41184294, 0.4083713)
-texture = ExtResource("2_0gdll")
-
-[node name="Panel_Skin" type="NinePatchRect" parent="INVENTORYUI" unique_id=1541569540]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -53.333344
-offset_top = -134.0
-offset_right = 214.66666
-offset_bottom = 232.0
+[node name="INVENTORYUI" type="Control" parent="." unique_id=18394637]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Panel_Skin" type="NinePatchRect" parent="INVENTORYUI" unique_id=1541569540]
+layout_mode = 1
+offset_left = 367.0
+offset_top = 48.999985
+offset_right = 635.0
+offset_bottom = 415.0
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_s1irv")
 region_rect = Rect2(0, 0, 940, 1080)
 
 [node name="Panel_Title" type="Label" parent="INVENTORYUI" unique_id=357266451]
-offset_left = 20.0
-offset_top = -119.333336
-offset_right = 150.0
-offset_bottom = -99.333336
+layout_mode = 0
+offset_left = 455.0
+offset_top = 72.0
+offset_right = 585.0
+offset_bottom = 92.0
+scale = Vector2(1.5, 1.5)
 theme_override_fonts/font = ExtResource("7_78dsd")
 theme_override_font_sizes/font_size = 20
 text = "INVENTORY"
 
 [node name="MainInventoryController" type="GridContainer" parent="INVENTORYUI" unique_id=932542009]
-offset_left = -23.333344
-offset_top = -61.333336
-offset_right = 192.66666
-offset_bottom = 22.666664
+layout_mode = 0
+offset_left = 406.0
+offset_top = 157.0
+offset_right = 622.0
+offset_bottom = 241.0
+scale = Vector2(1.5, 1.5)
 mouse_filter = 2
 columns = 5
 script = ExtResource("2_ugsjq")
@@ -141,6 +125,8 @@ mouse_default_cursor_shape = 2
 indx = 9
 
 [node name="OptionButtons" type="Node2D" parent="INVENTORYUI" unique_id=1766532277]
+position = Vector2(445.00003, 247)
+scale = Vector2(1.5, 1.5)
 
 [node name="btnSort_Inv" type="Button" parent="INVENTORYUI/OptionButtons" unique_id=135522976]
 offset_left = 112.0

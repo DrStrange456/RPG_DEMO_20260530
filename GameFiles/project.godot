@@ -38,6 +38,10 @@ gdscript/warnings/unused_signal=0
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/alignment-tool/plugin.cfg")
+
 [input]
 
 mapped_move_left={

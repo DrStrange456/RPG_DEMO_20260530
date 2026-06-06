@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://d23vgpxqv6p44" path="res://scenes/UI/new_pause_screen.gd" id="1_838wx"]
 [ext_resource type="Texture2D" uid="uid://bhlp8nkvd1vdu" path="res://assets/UI/Pause/Window.png" id="1_b5a30"]
 [ext_resource type="Texture2D" uid="uid://b7w24yhlxx11a" path="res://assets/UI/Pause/Header.png" id="2_0eocy"]
-[ext_resource type="Texture2D" uid="uid://dbk4ab6jsmke3" path="res://assets/UI/Pause/BG.png" id="2_bxsal"]
 [ext_resource type="Texture2D" uid="uid://dss4bsanpv1ew" path="res://assets/UI/Buttons/BTNs/Sound_BTN.png" id="3_r1j6r"]
 [ext_resource type="Texture2D" uid="uid://bcyn48saj7tlx" path="res://assets/UI/KENNEY/PNG/Blue/Default/slide_horizontal_color_section.png" id="4_838wx"]
 [ext_resource type="Texture2D" uid="uid://dtw12cxxbfbxt" path="res://assets/UI/KENNEY/PNG/Blue/Default/slide_horizontal_grey_section.png" id="5_bxsal"]
@@ -13,49 +12,39 @@
 [ext_resource type="AudioStream" uid="uid://bn064mlluy2x1" path="res://audio/music/OST_MissionCrit.mp3" id="10_bxsal"]
 [ext_resource type="AudioStream" uid="uid://bs01c5aihqu4y" path="res://audio/sfx/slot_pick.ogg" id="11_tyf61"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tyf61"]
-bg_color = Color(0.004019165, 0.004019165, 0.004019165, 1)
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6bxme"]
 texture = ExtResource("1_b5a30")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_838wx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bxsal"]
 
 [node name="NewPauseScreen" type="Control" unique_id=1495922918]
 process_mode = 3
 layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_838wx")
+
+[node name="PAUSEUI" type="Control" parent="." unique_id=179822295]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -573.5
-offset_bottom = -331.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2, 2)
-script = ExtResource("1_838wx")
-
-[node name="PAUSEUI" type="Node2D" parent="." unique_id=825634281]
-position = Vector2(22, 15)
-
-[node name="Panel2" type="Panel" parent="PAUSEUI" unique_id=1739265535]
-visible = false
-offset_left = -928.0
-offset_top = -479.33334
-offset_right = 1233.0
-offset_bottom = 611.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_tyf61")
-
-[node name="BG" type="Sprite2D" parent="PAUSEUI" unique_id=2072892219]
-visible = false
-position = Vector2(256.2672, 143.18195)
-rotation = 1.5707964
-scale = Vector2(0.31403175, 0.30864966)
-texture = ExtResource("2_bxsal")
 
 [node name="Panel" type="Panel" parent="PAUSEUI" unique_id=59301136]
-offset_left = 140.0
-offset_top = 4.0
-offset_right = 294.0
-offset_bottom = 196.0
-scale = Vector2(1.5, 1.5)
+layout_mode = 1
+offset_left = 331.0
+offset_top = 30.0
+offset_right = 485.0
+offset_bottom = 222.0
+scale = Vector2(3, 3)
 theme_override_styles/panel = SubResource("StyleBoxTexture_6bxme")
 
 [node name="TITLE" type="Sprite2D" parent="PAUSEUI/Panel" unique_id=509784504]
@@ -78,6 +67,7 @@ theme_override_icons/grabber = ExtResource("4_838wx")
 theme_override_icons/grabber_highlight = ExtResource("5_bxsal")
 theme_override_styles/slider = ExtResource("6_b5a30")
 theme_override_styles/grabber_area = ExtResource("7_0eocy")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_838wx")
 value = 50.0
 metadata/_edit_use_anchors_ = true
 
@@ -110,6 +100,7 @@ theme_override_icons/grabber = ExtResource("4_838wx")
 theme_override_icons/grabber_highlight = ExtResource("5_bxsal")
 theme_override_styles/slider = ExtResource("6_b5a30")
 theme_override_styles/grabber_area = ExtResource("7_0eocy")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_bxsal")
 value = 50.0
 metadata/_edit_use_anchors_ = true
 
@@ -136,10 +127,12 @@ stream = ExtResource("10_bxsal")
 stream = ExtResource("11_tyf61")
 
 [node name="txtReturn" type="Label" parent="PAUSEUI" unique_id=1583577116]
-offset_left = 190.5
-offset_top = 259.0
-offset_right = 323.5
-offset_bottom = 279.0
+layout_mode = 1
+offset_left = 432.0
+offset_top = 532.0
+offset_right = 565.0
+offset_bottom = 552.0
+scale = Vector2(2, 2)
 theme_override_font_sizes/font_size = 14
 text = "Press ESC to Return"
 

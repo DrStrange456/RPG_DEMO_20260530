@@ -30,7 +30,7 @@ func apply_audio_sfx_settings():
 	
 	if !sfx_sample.playing:
 		sfx_sample.play()
-	sfx_sample.volume_db = (40 * (float($Panel/SFX/sfx_volume/txtValue_SFX.text) / 100)) - 20
+	sfx_sample.volume_db = (40 * (float($PAUSEUI/Panel/SFX/sfx_volume/txtValue_SFX.text) / 100)) - 20
 
 func apply_audio_music_settings():
 	if ps_state != State.AUDIO: return
@@ -38,7 +38,7 @@ func apply_audio_music_settings():
 	
 	if !music_sample.playing:
 		music_sample.play()
-	music_sample.volume_db = (40 * (float($Panel/MUSIC/music_volume/txtValue_Music.text) / 100)) - 20
+	music_sample.volume_db = (40 * (float($PAUSEUI/Panel/MUSIC/music_volume/txtValue_Music.text) / 100)) - 20
 
 
 

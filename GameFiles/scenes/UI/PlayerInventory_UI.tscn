@@ -34,6 +34,7 @@ mouse_filter = 2
 script = ExtResource("1_ulete")
 
 [node name="Panel" type="Panel" parent="." unique_id=437226229]
+visible = false
 layout_mode = 0
 offset_left = -928.0
 offset_top = -479.33334
@@ -42,6 +43,7 @@ offset_bottom = 611.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_78dsd")
 
 [node name="BG" type="Sprite2D" parent="." unique_id=552223231]
+visible = false
 position = Vector2(84.99796, 48.37947)
 rotation = 1.5707964
 scale = Vector2(0.41184294, 0.40837127)

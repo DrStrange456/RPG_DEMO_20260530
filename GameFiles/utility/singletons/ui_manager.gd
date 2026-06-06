@@ -5,6 +5,13 @@ var inv_scene = preload("res://scenes/UI/PlayerInventory_UI.tscn")
 var pause_scene = preload("res://scenes/UI/new_pause_screen.tscn")
 var current_window: Control = null
 
+@onready var inventory_window = $InventoryWindow
+var inventory_open := false
+var tween_duration := 0.25
+
+# Set these in _ready() after positioning your UI
+var open_position: Vector2 = Vector2(-56,-134)
+var closed_position: Vector2 = Vector2(-56,308)
 
 
 
@@ -12,17 +19,19 @@ func _ready():
 #	Even though scene is paused, still accept input from UI
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
+
+
 func _unhandled_input(event):
 	if event.is_action_pressed("mapped_quick_open_inventory"):
 		open_inventory()
 	elif event.is_action_pressed("mapped_quick_open_character"):
 		open_character()
-	elif event.is_action_pressed("activate"):
-		pass
-	elif event.is_action_pressed("open_pause"):
-		open_pause()
 	elif event.is_action_pressed("ui_cancel"):
 		close_current_window()
+	elif event.is_action_pressed("open_pause"):
+		open_pause()
+	elif event.is_action_pressed("activate"):
+		pass
 
 
 
@@ -33,6 +42,21 @@ func open_inventory():
 	current_window = inv_scene.instantiate()
 	window_container.add_child(current_window)
 	get_tree().paused = true
+	
+	inventory_open = true
+	#inventory_window.visible = true
+
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_BACK)
+
+	tween.tween_property(
+		inventory_window,
+		"position",
+		open_position,
+		tween_duration
+	)
+
 
 func open_pause():
 	close_current_window()
@@ -112,6 +136,27 @@ func close_current_window():
 	#Events.emit_signal("update_weapon_button")
 	#Events.emit_signal("update_tool_button")
 	#Events.emit_signal("update_item_button")
+
+#
+#func open_inventory():
+#
+	#if inventory_open:
+		#return
+#
+	#inventory_open = true
+	#inventory_window.visible = true
+#
+	#var tween = create_tween()
+	#tween.set_ease(Tween.EASE_OUT)
+	#tween.set_trans(Tween.TRANS_BACK)
+#
+	#tween.tween_property(
+		#inventory_window,
+		#"position",
+		#open_position,
+		#tween_duration
+	#)
+#
 
 
 

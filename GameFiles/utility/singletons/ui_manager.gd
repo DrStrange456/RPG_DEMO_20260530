@@ -50,7 +50,7 @@ func open_inventory():
 	current_window = current_window.find_child("INVENTORYUI",true)
 	
 	# Make sure the window scales from its center
-	current_window.pivot_offset = current_window.size / 2.0
+	#current_window.pivot_offset = current_window.size / 2.0
 
 	# Initial state
 	current_window.visible = true
@@ -86,13 +86,16 @@ func open_pause():
 
 	current_window = pause_scene.instantiate()
 	window_container.add_child(current_window)
+	
+	await get_tree().process_frame
 
 	# Make sure the window scales from its center
+	var tst = current_window.pivot_offset
 	current_window.pivot_offset = current_window.size / 2.0
+	var tst2 = current_window.pivot_offset
 
 	# Initial state
 	current_window.visible = true
-	current_window.pivot_offset = current_window.size / 2.0
 	current_window.scale = Vector2(0.8, 0.8)
 	current_window.modulate.a = 0.0
 

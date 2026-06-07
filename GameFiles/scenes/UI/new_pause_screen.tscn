@@ -22,6 +22,7 @@ texture = ExtResource("1_b5a30")
 [node name="NewPauseScreen" type="Control" unique_id=1495922918]
 process_mode = 3
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -40,10 +41,10 @@ grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="PAUSEUI" unique_id=59301136]
 layout_mode = 1
-offset_left = 331.0
-offset_top = 30.0
-offset_right = 485.0
-offset_bottom = 222.0
+offset_left = 357.0
+offset_top = 40.0
+offset_right = 511.0
+offset_bottom = 232.0
 scale = Vector2(3, 3)
 theme_override_styles/panel = SubResource("StyleBoxTexture_6bxme")
 
@@ -126,13 +127,13 @@ stream = ExtResource("10_bxsal")
 [node name="SFX_Sample" type="AudioStreamPlayer2D" parent="PAUSEUI/Panel/Sounds" unique_id=2037577784]
 stream = ExtResource("11_tyf61")
 
-[node name="txtReturn" type="Label" parent="PAUSEUI" unique_id=1583577116]
+[node name="txtReturn" type="Label" parent="PAUSEUI/Panel" unique_id=1583577116]
 layout_mode = 1
-offset_left = 432.0
-offset_top = 532.0
-offset_right = 565.0
-offset_bottom = 552.0
-scale = Vector2(2, 2)
+offset_left = 30.33332
+offset_top = 167.33334
+offset_right = 163.33331
+offset_bottom = 187.33334
+scale = Vector2(0.7, 0.7)
 theme_override_font_sizes/font_size = 14
 text = "Press ESC to Return"
 

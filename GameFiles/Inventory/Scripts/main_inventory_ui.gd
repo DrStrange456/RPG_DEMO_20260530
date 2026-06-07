@@ -1,11 +1,13 @@
 extends Control
 
 
-@onready var main_inventory_container_ui: GridContainer = $INVENTORYUI/MainInventoryController
+#@onready var main_inventory_container_ui: GridContainer = $INVENTORYUI/MainInventoryController
+@onready var main_inventory_container_ui: GridContainer
 var inventory : Array[OptiInventorySlot] = []
 
 
 func _ready() -> void:
+	main_inventory_container_ui = find_anywhere("MainInventoryController")
 	Events.connect("refresh_market_inv_ui", Callable(_refresh_inventory_items))
 	_load_slots_from_save()
 
@@ -40,3 +42,36 @@ func _on_btn_sort_inv_pressed() -> void:
 
 func _refresh_inventory_items():
 	_load_slots_from_save()
+
+
+
+
+
+
+func find_anywhere(name1: String) -> Node:
+	var tree := get_tree()
+	
+	# 1. Try to get autoloads
+	var autoloads = ProjectSettings.get_setting("application/config/autoloads")
+	if autoloads != null:
+		for autoload_name in autoloads.keys():
+			var singleton = tree.get_first_node_in_group(autoload_name)
+			if singleton:
+				if singleton.name == name1:
+					return singleton
+				var found = singleton.find_child(name1, true)
+				if found:
+					return found
+
+	# 2. Try current scene
+	if tree:
+		if tree.current_scene:
+			var found = tree.current_scene.find_child(name1, true)
+			if found:
+				return found
+
+	# 3. Try the root (includes autoloads + main viewport)
+	return tree.root.find_child(name1, true, false)
+
+
+# Bottom

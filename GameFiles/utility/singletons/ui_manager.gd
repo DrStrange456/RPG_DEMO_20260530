@@ -3,12 +3,15 @@ extends Node
 
 var inv_scene = preload("res://scenes/UI/PlayerInventory_UI.tscn")
 var pause_scene = preload("res://scenes/UI/new_pause_screen.tscn")
+var gen_str_scene = preload("res://scenes/UI/general_store.tscn")
+
 var current_window: Control = null
 
 #@onready var inventory_window = $InventoryWindow
 var inventory_open := false
 var current_tween: Tween
 
+var active_sell_ui: bool
 
 # Set these in _ready() after positioning your UI
 #var open_position: Vector2 = Vector2(-56,-134)
@@ -32,7 +35,7 @@ func _unhandled_input(event):
 	elif event.is_action_pressed("open_pause"):
 		open_pause()
 	elif event.is_action_pressed("activate"):
-		pass
+		open_general_store()
 
 
 
@@ -41,83 +44,83 @@ func _unhandled_input(event):
 
 func open_inventory():
 	close_current_window()
-
+	
 	var window_container: Node2D = find_anywhere("WindowContainer")
-
+	
 	current_window = inv_scene.instantiate()
 	window_container.add_child(current_window)
+	
+	await get_tree().process_frame
 	
 	current_window = current_window.find_child("INVENTORYUI",true)
 	
 	# Make sure the window scales from its center
 	#current_window.pivot_offset = current_window.size / 2.0
-
+	
 	# Initial state
 	current_window.visible = true
 	current_window.scale = Vector2(0.8, 0.8)
 	current_window.modulate.a = 0.0
-
+	
 	var tween = create_tween()
 	tween.set_parallel()
 	tween.set_trans(Tween.TRANS_BACK)
 	tween.set_ease(Tween.EASE_OUT)
-
+	
 	tween.tween_property(
 		current_window,
 		"scale",
 		Vector2.ONE,
 		0.2
 	)
-
+	
 	tween.tween_property(
 		current_window,
 		"modulate:a",
 		1.0,
 		0.2
 	)
-
+	
 	get_tree().paused = true
 	inventory_open = true
 
 func open_pause():
 	close_current_window()
-
+	
 	var window_container: Node2D = find_anywhere("WindowContainer")
-
+	
 	current_window = pause_scene.instantiate()
 	window_container.add_child(current_window)
 	
 	await get_tree().process_frame
-
+	
 	# Make sure the window scales from its center
-	var tst = current_window.pivot_offset
 	current_window.pivot_offset = current_window.size / 2.0
-	var tst2 = current_window.pivot_offset
-
+	
 	# Initial state
 	current_window.visible = true
 	current_window.scale = Vector2(0.8, 0.8)
 	current_window.modulate.a = 0.0
-
+	
 	var tween = create_tween()
 	tween.set_parallel()
 	tween.set_trans(Tween.TRANS_BACK)
 	tween.set_ease(Tween.EASE_OUT)
-
+	
 	tween.tween_property(
 		current_window,
 		"scale",
 		Vector2.ONE,
 		0.2
 	)
-
+	
 	tween.tween_property(
 		current_window,
 		"modulate:a",
 		1.0,
 		0.2
 	)
-
+	
 	get_tree().paused = true
 	inventory_open = true
 
@@ -154,6 +157,49 @@ func close_current_window():
 
 func open_character():
 	pass
+
+func open_general_store():
+	close_current_window()
+	
+	var window_container: Node2D = find_anywhere("WindowContainer")
+	
+	current_window = gen_str_scene.instantiate()
+	window_container.add_child(current_window)
+	
+	await get_tree().process_frame
+	
+	# Make sure the window scales from its center
+	current_window.pivot_offset = current_window.size / 2.0
+	
+	# Initial state
+	current_window.visible = true
+	current_window.scale = Vector2(0.8, 0.8)
+	current_window.modulate.a = 0.0
+	
+	var tween = create_tween()
+	tween.set_parallel()
+	tween.set_trans(Tween.TRANS_BACK)
+	tween.set_ease(Tween.EASE_OUT)
+	
+	tween.tween_property(
+		current_window,
+		"scale",
+		Vector2.ONE,
+		0.2
+	)
+	
+	tween.tween_property(
+		current_window,
+		"modulate:a",
+		1.0,
+		0.2
+	)
+	
+	get_tree().paused = true
+	inventory_open = true
+
+
+
 
 func find_anywhere(name1: String) -> Node:
 	var tree := get_tree()

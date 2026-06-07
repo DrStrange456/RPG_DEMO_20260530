@@ -151,7 +151,7 @@ metadata/_tab_index = 1
 position = Vector2(189, -7)
 scale = Vector2(2, 2)
 
-[node name="MainInventory" parent="TabContainer/SELL/PlayerInventory" unique_id=1117184844 instance=ExtResource("2_w8hr2")]
+[node name="MainInventory" parent="TabContainer/SELL/PlayerInventory" unique_id=1943966495 instance=ExtResource("2_w8hr2")]
 offset_left = 50.0
 offset_top = 58.5
 offset_right = 90.0

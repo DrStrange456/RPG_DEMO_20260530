@@ -5,6 +5,8 @@ extends Control
 @onready var txt_money_2: RichTextLabel = $TabContainer/SELL/CreditsIndicator/txtMONEY2
 @onready var market_item_sell_ui: Control = $market_item_sell_ui
 
+@onready var player_inventory_buy = $TabContainer/BUY/PlayerInventory
+@onready var player_inventory_sell = $TabContainer/SELL/PlayerInventory
 
 
 var items_to_be_sold: Array = []
@@ -30,6 +32,7 @@ func _ready() -> void:
 	_load_merchant_wares()
 	reset_sell_qty_labels()
 	initialize_sell_slots()
+	initialize_sell_inventory()
 
 
 # - - - - - - - - - - - - - - 
@@ -228,12 +231,22 @@ func _reset_seller_ui()->void:
 
 
 func initialize_sell_inventory():
-	var main_inventory: Control = $TabContainer/SELL/PlayerInventory/MainInventory
-	main_inventory._refresh_inventory_items()
+	#var main_inventory: Control = $TabContainer/SELL/PlayerInventory/MainInventory
+	#var main_inventory_ctrllr: GridContainer = $TabContainer/SELL/PlayerInventory/MainInventory/MainInventoryController
+	
+	var main_inventory_sell = player_inventory_sell.get_node("MainInventory")
+	var main_inventory_sell_controller = main_inventory_sell.get_node("MainInventoryController")
+	
+	main_inventory_sell._refresh_inventory_items(main_inventory_sell_controller)
 
 func initialize_BUY_inventory():
-	var main_inventory: Control = $TabContainer/BUY/PlayerInventory/MainInventory
-	main_inventory._refresh_inventory_items()
+	#var main_inventory: Control = $TabContainer/BUY/PlayerInventory/MainInventory
+	#var main_inventory_ctrllr: GridContainer = $TabContainer/BUY/PlayerInventory/MainInventory/MainInventoryController
+	
+	var main_inventory_buy = player_inventory_buy.get_node("MainInventory")
+	var main_inventory_buy_controller = main_inventory_buy.get_node("MainInventoryController")
+	
+	main_inventory_buy._refresh_inventory_items(main_inventory_buy_controller)
 
 
 

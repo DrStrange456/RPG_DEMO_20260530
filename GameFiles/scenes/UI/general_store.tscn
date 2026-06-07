@@ -32,9 +32,10 @@ offset_left = 31.0
 offset_top = 61.0
 offset_right = 1125.0
 offset_bottom = 631.0
-current_tab = 0
+current_tab = 1
 
 [node name="BUY" type="TabBar" parent="TabContainer" unique_id=1887473614]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -143,21 +144,12 @@ wait_time = 0.1
 autostart = true
 
 [node name="SELL" type="TabBar" parent="TabContainer" unique_id=1912499540]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
 [node name="PlayerInventory" type="Node2D" parent="TabContainer/SELL" unique_id=1177752020]
 position = Vector2(189, -7)
 scale = Vector2(2, 2)
-
-[node name="ColorRect" type="ColorRect" parent="TabContainer/SELL/PlayerInventory" unique_id=977949537]
-visible = false
-offset_left = 41.5
-offset_top = 53.5
-offset_right = 273.0
-offset_bottom = 215.0
-color = Color(0.71000004, 0.826, 1, 1)
 
 [node name="MainInventory" parent="TabContainer/SELL/PlayerInventory" unique_id=1117184844 instance=ExtResource("2_w8hr2")]
 offset_left = 50.0

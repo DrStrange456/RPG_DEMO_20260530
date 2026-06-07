@@ -21,13 +21,13 @@ config/icon="res://icon.svg"
 StartupTimer="*uid://bjltl0drpbxep"
 Enum="*uid://qux27l5h2bux"
 Data="*uid://we17n5m2vqov"
-StorageManager="*uid://st11jtu58hme"
-UiManager="*uid://bk2j3588urs3s"
 GameManager="*uid://b5b2ypeyywvl6"
 Events="*uid://d1e872gysck6v"
 Settings="*uid://ddwgtw8u1ejsb"
-AudioController="*uid://deseaqrvtp54y"
 AudioManager="*uid://bl75hdjtxhlly"
+StorageManager="*uid://st11jtu58hme"
+AudioController="*uid://deseaqrvtp54y"
+UiManager="*uid://bk2j3588urs3s"
 
 [debug]
 

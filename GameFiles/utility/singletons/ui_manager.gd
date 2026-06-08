@@ -12,6 +12,8 @@ var inventory_open := false
 var current_tween: Tween
 
 var active_sell_ui: bool
+var active_ui
+
 
 # Set these in _ready() after positioning your UI
 #var open_position: Vector2 = Vector2(-56,-134)

@@ -48,4 +48,12 @@ func _on_btn_item_pressed() -> void:
 
 
 
+func _on_chest_small_activate_clicked() -> void:
+	GameManager._on_pause_opened()
+	#dev_chest.visible = true
+	#dev_chest._reset_inventory()
+
+func _on_chest_large_activate_clicked() -> void:
+	pass # Replace with function body.
+
 # Bottom

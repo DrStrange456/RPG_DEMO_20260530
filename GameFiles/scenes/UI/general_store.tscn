@@ -32,10 +32,9 @@ offset_left = 31.0
 offset_top = 61.0
 offset_right = 1125.0
 offset_bottom = 631.0
-current_tab = 1
+current_tab = 0
 
 [node name="BUY" type="TabBar" parent="TabContainer" unique_id=1887473614]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -144,6 +143,7 @@ wait_time = 0.1
 autostart = true
 
 [node name="SELL" type="TabBar" parent="TabContainer" unique_id=1912499540]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 

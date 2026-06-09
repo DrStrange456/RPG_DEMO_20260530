@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://7wr7y06ddii6" path="res://characters/bat/bat.tscn" id="10_q502d"]
 [ext_resource type="PackedScene" uid="uid://c4e6rk11j2cs7" path="res://scenes/objects/storage_containers/chest_small.tscn" id="11_4fb74"]
 [ext_resource type="PackedScene" uid="uid://bnkp1ls4ltgmc" path="res://scenes/objects/market.tscn" id="11_cxtfx"]
-[ext_resource type="PackedScene" uid="uid://bducrb47y028v" path="res://scenes/objects/storage_containers/chest_large.tscn" id="12_00lgd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0n0ph"]
 texture = ExtResource("3_kpaqn")
@@ -3256,6 +3255,9 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_0n0ph")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxtfx"]
+size = Vector2(101, 20)
+
 [node name="dev_starter_world" type="Node2D" unique_id=690065427]
 script = ExtResource("1_wa1is")
 
@@ -3334,12 +3336,21 @@ position = Vector2(1146, 94)
 zoom = Vector2(2, 2)
 metadata/_edit_lock_ = true
 
+[node name="market" parent="World/Objects" unique_id=1932922336 instance=ExtResource("11_cxtfx")]
+position = Vector2(1144, -40)
+
 [node name="player_house" parent="World/Objects" unique_id=1189063552 instance=ExtResource("3_ibmid")]
 y_sort_enabled = true
 position = Vector2(815, -82)
 
-[node name="market" parent="World/Objects" unique_id=1932922336 instance=ExtResource("11_cxtfx")]
-position = Vector2(1144, -40)
+[node name="Marker2D" type="Marker2D" parent="World/Objects/player_house" unique_id=1421760556]
+position = Vector2(-1, 146)
+
+[node name="Area2D" type="Area2D" parent="World/Objects/player_house" unique_id=1976776669]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Objects/player_house/Area2D" unique_id=323463439]
+position = Vector2(0.5, 101)
+shape = SubResource("RectangleShape2D_cxtfx")
 
 [node name="Enemies" type="Node2D" parent="World" unique_id=729729922]
 
@@ -3360,13 +3371,9 @@ position = Vector2(2378, 209)
 [node name="Storage_Bin" type="Node2D" parent="World" unique_id=1626639135]
 
 [node name="chest_small" parent="World/Storage_Bin" unique_id=1869348280 instance=ExtResource("11_4fb74")]
-position = Vector2(1269, 66)
-
-[node name="chest_large" parent="World/Storage_Bin" unique_id=567661967 instance=ExtResource("12_00lgd")]
-position = Vector2(1021, 69)
+position = Vector2(1281, 58)
 
 [connection signal="pressed" from="UI/HUD/btnWEAPON" to="." method="_on_btn_weapon_pressed"]
 [connection signal="pressed" from="UI/HUD/btnTOOL" to="." method="_on_btn_tool_pressed"]
 [connection signal="pressed" from="UI/HUD/btnITEM" to="." method="_on_btn_item_pressed"]
-[connection signal="activate_clicked" from="World/Storage_Bin/chest_small" to="." method="_on_chest_small_activate_clicked"]
-[connection signal="activate_clicked" from="World/Storage_Bin/chest_large" to="." method="_on_chest_large_activate_clicked"]
+[connection signal="body_entered" from="World/Objects/player_house/Area2D" to="." method="_on_area_2d_body_entered"]

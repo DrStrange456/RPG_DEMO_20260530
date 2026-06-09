@@ -11,12 +11,12 @@ var plyr
 func _ready():
 	interact_icon.visible = false
 
-func _input(_event: InputEvent) -> void:
-	if plyr and player_within_range:
-		if Input.is_action_just_pressed("activate"):
-			UiManager.active_ui = self
-			activate_clicked.emit()
-			get_viewport().set_input_as_handled()  # Mark event as handled
+#func _input(_event: InputEvent) -> void:
+	#if plyr and player_within_range:
+		#if Input.is_action_just_pressed("activate"):
+			#UiManager.active_ui = self
+			#activate_clicked.emit()
+			#get_viewport().set_input_as_handled()  # Mark event as handled
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):

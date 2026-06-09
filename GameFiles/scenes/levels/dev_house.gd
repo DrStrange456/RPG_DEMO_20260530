@@ -17,7 +17,7 @@ func _on_chest_large_activate_clicked() -> void:
 
 func _on_transition_point_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		get_tree().change_scene_to_packed(GameManager.world_scened)
+		get_tree().change_scene_to_packed(GameManager.world_scene)
 
 
 

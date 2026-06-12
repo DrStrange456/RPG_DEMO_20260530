@@ -3347,6 +3347,7 @@ position = Vector2(815, -82)
 position = Vector2(-1, 146)
 
 [node name="Area2D" type="Area2D" parent="World/Objects/player_house" unique_id=1976776669]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Objects/player_house/Area2D" unique_id=323463439]
 position = Vector2(0.5, 101)

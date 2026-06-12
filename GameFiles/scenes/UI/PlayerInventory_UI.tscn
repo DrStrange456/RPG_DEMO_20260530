@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ek8xkrnetotn"]
 
 [ext_resource type="Script" uid="uid://dodyglqii7ylq" path="res://Inventory/Scripts/main_inventory_ui.gd" id="1_ulete"]
+[ext_resource type="Texture2D" uid="uid://dmjs7ak4h3hio" path="res://assets/UI/A-MyFiles/Inventory_bg.png" id="2_78dsd"]
 [ext_resource type="Script" uid="uid://culwm761ctewy" path="res://Inventory/Scripts/main_inventory_controller.gd" id="2_ugsjq"]
 [ext_resource type="PackedScene" uid="uid://lt04e7ajlebf" path="res://Inventory/inventory_slot_ui.tscn" id="3_ithvx"]
 [ext_resource type="Texture2D" uid="uid://bhlp8nkvd1vdu" path="res://assets/UI/Pause/Window.png" id="3_s1irv"]
@@ -34,17 +35,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel_Skin" type="NinePatchRect" parent="INVENTORYUI" unique_id=1541569540]
-layout_mode = 1
-offset_left = 389.0
-offset_top = 43.0
-offset_right = 657.0
-offset_bottom = 409.0
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("3_s1irv")
+[node name="Panel_Skin" type="Sprite2D" parent="INVENTORYUI" unique_id=2000306396]
+position = Vector2(573, 321)
+texture = ExtResource("2_78dsd")
 region_rect = Rect2(0, 0, 940, 1080)
 
 [node name="Panel_Title" type="Label" parent="INVENTORYUI" unique_id=357266451]
+visible = false
 layout_mode = 1
 offset_left = 497.0
 offset_top = 68.0
@@ -57,10 +54,10 @@ text = "INVENTORY"
 
 [node name="MainInventoryController" type="GridContainer" parent="INVENTORYUI" unique_id=932542009]
 layout_mode = 1
-offset_left = 432.0
-offset_top = 154.0
-offset_right = 648.0
-offset_bottom = 238.0
+offset_left = 416.0
+offset_top = 104.0
+offset_right = 632.0
+offset_bottom = 188.0
 scale = Vector2(1.5, 1.5)
 mouse_filter = 2
 columns = 5
@@ -126,7 +123,7 @@ mouse_default_cursor_shape = 2
 indx = 9
 
 [node name="OptionButtons" type="Node2D" parent="INVENTORYUI" unique_id=1766532277]
-position = Vector2(480, 244)
+position = Vector2(457, 265)
 scale = Vector2(1.5, 1.5)
 
 [node name="btnSort_Inv" type="Button" parent="INVENTORYUI/OptionButtons" unique_id=135522976]
@@ -140,5 +137,16 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_78dsd")
 theme_override_styles/hover = SubResource("StyleBoxTexture_s1irv")
 text = "Sort"
 icon_alignment = 1
+
+[node name="Panel_Skin2" type="NinePatchRect" parent="INVENTORYUI" unique_id=1146417709]
+visible = false
+layout_mode = 0
+offset_left = 972.5
+offset_top = 107.5
+offset_right = 1240.5
+offset_bottom = 473.5
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_s1irv")
+region_rect = Rect2(0, 0, 940, 1080)
 
 [connection signal="pressed" from="INVENTORYUI/OptionButtons/btnSort_Inv" to="." method="_on_btn_sort_inv_pressed"]

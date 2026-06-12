@@ -90,15 +90,3 @@ custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 indx = 9
-
-[node name="OptionButtons" type="Node2D" parent="." unique_id=1766532277]
-
-[node name="btnSort_Inv" type="Button" parent="OptionButtons" unique_id=135522976]
-offset_left = 306.0
-offset_top = 11.0
-offset_right = 374.0
-offset_bottom = 31.0
-theme_override_font_sizes/font_size = 8
-text = "Sort Inv"
-
-[connection signal="pressed" from="OptionButtons/btnSort_Inv" to="." method="_on_btn_sort_inv_pressed"]

@@ -5,10 +5,10 @@
 [ext_resource type="Script" uid="uid://tk47tw4s33mt" path="res://characters/female_farmer1/weapon_hit_box.gd" id="3_enyc6"]
 [ext_resource type="AnimationNodeBlendSpace2D" uid="uid://762dybxyxwx6" path="res://utility/helpful/idle_animation_node_blend_space_2d.tres" id="3_ldh67"]
 [ext_resource type="Texture2D" uid="uid://c6hxcn5qf32ew" path="res://assets/Items/Weapons/sword.png" id="3_tju18"]
-[ext_resource type="PackedScene" path="res://components/reticle_component.tscn" id="3_uxmtc"]
+[ext_resource type="PackedScene" uid="uid://pqmkej5kc7fm" path="res://components/reticle_component.tscn" id="3_uxmtc"]
 [ext_resource type="AnimationNodeBlendSpace2D" uid="uid://c3eoq45at6s6n" path="res://utility/helpful/walk_animation_node_blend_space_2d.tres" id="4_uxmtc"]
-[ext_resource type="PackedScene" path="res://components/harvest_receiver_component.tscn" id="4_ym66v"]
-[ext_resource type="PackedScene" path="res://components/damage_component.tscn" id="8_mq78p"]
+[ext_resource type="PackedScene" uid="uid://deotjn4ichnpc" path="res://components/harvest_receiver_component.tscn" id="4_ym66v"]
+[ext_resource type="PackedScene" uid="uid://df6ermeo6y044" path="res://components/damage_component.tscn" id="8_mq78p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ygsxb"]
 

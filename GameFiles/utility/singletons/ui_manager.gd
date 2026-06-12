@@ -3,7 +3,8 @@ extends Node
 
 var inv_scene = preload("res://scenes/UI/PlayerInventory_UI.tscn")
 var pause_scene = preload("res://scenes/UI/new_pause_screen.tscn")
-var gen_str_scene = preload("res://scenes/UI/general_store.tscn")
+var gen_str_scene = preload("res://scenes/levels/new_general_store.tscn")
+#var gen_str_scene = preload("res://scenes/UI/general_store.tscn")
 
 var current_window: Control = null
 
@@ -37,8 +38,8 @@ func _unhandled_input(event):
 	elif event.is_action_pressed("open_pause"):
 		open_pause()
 	elif event.is_action_pressed("activate"):
-		#open_general_store()
-		pass
+		open_general_store()
+		#pass
 
 
 

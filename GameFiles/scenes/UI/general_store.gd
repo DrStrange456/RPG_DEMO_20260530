@@ -245,7 +245,6 @@ func initialize_BUY_inventory():
 	
 	var main_inventory_buy = player_inventory_buy.get_node("MainInventory")
 	var main_inventory_buy_controller = main_inventory_buy.get_node("MainInventoryController")
-	
 	main_inventory_buy._refresh_inventory_items(main_inventory_buy_controller)
 
 

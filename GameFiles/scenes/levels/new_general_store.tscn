@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://24ichay8ppfd"]
 
-[ext_resource type="Texture2D" uid="uid://dmontvoxomsrl" path="res://assets/UI/A-MyFiles/Shop-ui.PNG" id="1_4by30"]
+[ext_resource type="Texture2D" uid="uid://bn0ym4xoqx8u6" path="res://assets/UI/A-MyFiles/Shop_bg.PNG" id="1_4by30"]
+[ext_resource type="Script" uid="uid://crpb6376q5nhg" path="res://scenes/levels/new_general_store.gd" id="1_uog14"]
 [ext_resource type="PackedScene" uid="uid://cpsr1xiem504f" path="res://scenes/objects/store/market_item.tscn" id="2_uog14"]
 [ext_resource type="PackedScene" uid="uid://xxbrqpi5ntgu" path="res://Inventory/MainInventoryUI/MainInventoryUI.tscn" id="3_wrwc7"]
 
@@ -12,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_uog14")
 metadata/_edit_lock_ = true
 
 [node name="ShopUi" type="Sprite2D" parent="." unique_id=1920915404]

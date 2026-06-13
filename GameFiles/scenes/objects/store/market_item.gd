@@ -1,8 +1,6 @@
 class_name market_list_item
 extends Panel
 
-#signal init_market_ui_inv
-#signal refresh_money_cntr
 
 @export var nm: String
 @export var qty: int

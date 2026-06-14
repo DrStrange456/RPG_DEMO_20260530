@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bqfr3d1jskt6c" path="res://assets/Items/Tools/axe_lv1.png" id="6_cxtfx"]
 [ext_resource type="PackedScene" uid="uid://24ichay8ppfd" path="res://scenes/levels/new_general_store.tscn" id="7_00lgd"]
 [ext_resource type="Texture2D" uid="uid://cg4pwmht6unge" path="res://assets/icons/seeds_carrot.png" id="7_4fb74"]
+[ext_resource type="PackedScene" uid="uid://bqp6d0hamxsxv" path="res://scenes/UI/pause_ui.tscn" id="8_32xvi"]
 [ext_resource type="PackedScene" uid="uid://7wr7y06ddii6" path="res://characters/bat/bat.tscn" id="10_q502d"]
 [ext_resource type="PackedScene" uid="uid://c4e6rk11j2cs7" path="res://scenes/objects/storage_containers/chest_small.tscn" id="11_4fb74"]
 [ext_resource type="PackedScene" uid="uid://bnkp1ls4ltgmc" path="res://scenes/objects/market.tscn" id="11_cxtfx"]
@@ -3308,6 +3309,8 @@ visible = false
 
 [node name="new_general_store" parent="UI/WindowContainer" unique_id=933798175 instance=ExtResource("7_00lgd")]
 visible = false
+
+[node name="pause_ui" parent="UI/WindowContainer" unique_id=252582373 instance=ExtResource("8_32xvi")]
 
 [node name="World" type="Node2D" parent="." unique_id=1837297623]
 

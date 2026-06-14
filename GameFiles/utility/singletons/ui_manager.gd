@@ -2,7 +2,7 @@ class_name UIManager
 extends Node
 
 var inv_scene = preload("res://scenes/UI/PlayerInventory_UI.tscn")
-var pause_scene = preload("res://scenes/UI/new_pause_screen.tscn")
+var pause_scene = preload("res://scenes/UI/pause_ui.tscn")
 var gen_str_scene = preload("res://scenes/levels/new_general_store.tscn")
 #var gen_str_scene = preload("res://scenes/UI/general_store.tscn")
 

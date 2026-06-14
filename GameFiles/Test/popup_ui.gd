@@ -16,7 +16,7 @@ extends Control
 @export var idle_scale_amount := 1.03
 @export var idle_duration := 0.75
 
-@onready var sprite: Sprite2D = $InventoryBg
+@onready var popup: Control = $PopupRoot
 
 var is_open := false
 
@@ -24,16 +24,23 @@ var active_tween: Tween
 var idle_tween: Tween
 
 var base_position: Vector2
+var base_scale := Vector2.ONE
 
 
 func _ready() -> void:
-	base_position = sprite.position
+	# Wait one frame so PopupRoot has its final size
+	await get_tree().process_frame
+
+	# Scale from the center of the inventory window
+	popup.pivot_offset = popup.size * 0.5
+
+	base_position = popup.position
 
 	visible = false
 
-	sprite.position = base_position
-	sprite.scale = Vector2.ZERO
-	sprite.modulate.a = 0.0
+	popup.position = base_position
+	popup.scale = Vector2.ZERO
+	popup.modulate.a = 0.0
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -55,10 +62,10 @@ func open_popup() -> void:
 
 	visible = true
 
-	# Start squashed and invisible
-	sprite.position = base_position
-	sprite.scale = Vector2(0.8, 1.2)
-	sprite.modulate.a = 0.0
+	# Start slightly tall and narrow
+	popup.position = base_position
+	popup.scale = Vector2(0.8, 1.2)
+	popup.modulate.a = 0.0
 
 	active_tween = create_tween()
 
@@ -68,14 +75,14 @@ func open_popup() -> void:
 	active_tween.set_parallel()
 
 	active_tween.tween_property(
-		sprite,
+		popup,
 		"scale",
 		Vector2(1.10, 0.95),
 		pop_in_duration
 	).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 	active_tween.tween_property(
-		sprite,
+		popup,
 		"modulate:a",
 		1.0,
 		pop_in_duration
@@ -85,10 +92,11 @@ func open_popup() -> void:
 	# SETTLE
 	#
 	active_tween.chain()
+
 	active_tween.tween_property(
-		sprite,
+		popup,
 		"scale",
-		Vector2.ONE,
+		base_scale,
 		settle_duration
 	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
@@ -109,7 +117,7 @@ func close_popup() -> void:
 	# ANTICIPATION
 	#
 	active_tween.tween_property(
-		sprite,
+		popup,
 		"scale",
 		Vector2(1.08, 0.92),
 		anticipation_duration
@@ -122,14 +130,14 @@ func close_popup() -> void:
 	active_tween.set_parallel()
 
 	active_tween.tween_property(
-		sprite,
+		popup,
 		"scale",
 		Vector2(1.20, 0.0),
 		pop_out_duration
 	).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
 
 	active_tween.tween_property(
-		sprite,
+		popup,
 		"modulate:a",
 		0.0,
 		pop_out_duration
@@ -140,9 +148,9 @@ func close_popup() -> void:
 	if !is_open:
 		visible = false
 
-		sprite.position = base_position
-		sprite.scale = Vector2.ZERO
-		sprite.modulate.a = 0.0
+		popup.position = base_position
+		popup.scale = Vector2.ZERO
+		popup.modulate.a = 0.0
 
 
 func start_idle() -> void:
@@ -155,16 +163,16 @@ func start_idle() -> void:
 	idle_tween.set_parallel()
 
 	idle_tween.tween_property(
-		sprite,
+		popup,
 		"position:y",
 		base_position.y - idle_float_amount,
 		idle_duration
 	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 	idle_tween.tween_property(
-		sprite,
+		popup,
 		"scale",
-		Vector2.ONE * idle_scale_amount,
+		base_scale * idle_scale_amount,
 		idle_duration
 	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
@@ -175,16 +183,16 @@ func start_idle() -> void:
 	idle_tween.set_parallel()
 
 	idle_tween.tween_property(
-		sprite,
+		popup,
 		"position:y",
 		base_position.y,
 		idle_duration
 	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 	idle_tween.tween_property(
-		sprite,
+		popup,
 		"scale",
-		Vector2.ONE,
+		base_scale,
 		idle_duration
 	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
@@ -192,6 +200,8 @@ func start_idle() -> void:
 func kill_tweens() -> void:
 	if active_tween:
 		active_tween.kill()
+		active_tween = null
 
 	if idle_tween:
 		idle_tween.kill()
+		idle_tween = null

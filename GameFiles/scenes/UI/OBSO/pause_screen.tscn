@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ddexedh883cvx"]
+[gd_scene format=3 uid="uid://cv4nkpt4h8m8g"]
 
 [ext_resource type="PackedScene" uid="uid://xxbrqpi5ntgu" path="res://Inventory/MainInventoryUI/MainInventoryUI.tscn" id="1_355ex"]
 [ext_resource type="Script" uid="uid://cps85ael0p0su" path="res://scenes/UI/pause_screen.gd" id="1_n8qtr"]

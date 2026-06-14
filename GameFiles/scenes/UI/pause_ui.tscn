@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bqp6d0hamxsxv"]
+
+[ext_resource type="Script" uid="uid://brg2i6027pst4" path="res://scenes/UI/pause_ui.gd" id="1_o2sb4"]
+[ext_resource type="Texture2D" uid="uid://v2hhjfa0iidd" path="res://assets/UI/A-MyFiles/pause_ui.PNG" id="1_si5h2"]
+[ext_resource type="Texture2D" uid="uid://b7w24yhlxx11a" path="res://assets/UI/Pause/Header.png" id="2_o2sb4"]
+
+[node name="pause_ui" type="Control" unique_id=252582373]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o2sb4")
+toggle_action = "open_pause"
+
+[node name="PopupRoot" type="Control" parent="." unique_id=1839961375]
+anchors_preset = 0
+offset_right = 1151.0
+offset_bottom = 646.0
+
+[node name="bg" type="Sprite2D" parent="PopupRoot" unique_id=1190276528]
+position = Vector2(582, 336.00003)
+scale = Vector2(0.29560637, 0.2978836)
+texture = ExtResource("1_si5h2")
+
+[node name="TITLE" type="Sprite2D" parent="PopupRoot" unique_id=1869903506]
+position = Vector2(586, 71)
+scale = Vector2(0.32333323, 0.28389835)
+texture = ExtResource("2_o2sb4")

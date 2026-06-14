@@ -37,7 +37,8 @@ func _unhandled_input(event):
 	elif event.is_action_pressed("ui_cancel"):
 		close_current_window()
 	elif event.is_action_pressed("open_pause"):
-		open_pause()
+		#open_pause()
+		pass
 	elif event.is_action_pressed("activate"):
 		#open_general_store()
 		pass

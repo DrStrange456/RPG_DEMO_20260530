@@ -28,3 +28,43 @@ texture = ExtResource("1_si5h2")
 position = Vector2(586, 71)
 scale = Vector2(0.32333323, 0.28389835)
 texture = ExtResource("2_o2sb4")
+
+[node name="Buttons" type="Node2D" parent="PopupRoot" unique_id=745872755]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupRoot/Buttons" unique_id=687211834]
+offset_left = 324.0
+offset_top = 110.0
+offset_right = 545.0
+offset_bottom = 505.0
+theme_override_constants/separation = 11
+
+[node name="btnNEW" type="Button" parent="PopupRoot/Buttons/VBoxContainer" unique_id=659544927]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+text = "NEW"
+
+[node name="btnSAVE" type="Button" parent="PopupRoot/Buttons/VBoxContainer" unique_id=389315623]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+text = "SAVE"
+
+[node name="btnLOAD" type="Button" parent="PopupRoot/Buttons/VBoxContainer" unique_id=286855200]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+text = "LOAD"
+
+[node name="btnSETTINGS" type="Button" parent="PopupRoot/Buttons/VBoxContainer" unique_id=220838603]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+text = "SETTINGS"
+
+[node name="btnQUIT" type="Button" parent="PopupRoot/Buttons/VBoxContainer" unique_id=2009693529]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+text = "QUIT"
+
+[connection signal="pressed" from="PopupRoot/Buttons/VBoxContainer/btnNEW" to="." method="_on_btn_new_pressed"]
+[connection signal="pressed" from="PopupRoot/Buttons/VBoxContainer/btnSAVE" to="." method="_on_btn_save_pressed"]
+[connection signal="pressed" from="PopupRoot/Buttons/VBoxContainer/btnLOAD" to="." method="_on_btn_load_pressed"]
+[connection signal="pressed" from="PopupRoot/Buttons/VBoxContainer/btnSETTINGS" to="." method="_on_btn_settings_pressed"]
+[connection signal="pressed" from="PopupRoot/Buttons/VBoxContainer/btnQUIT" to="." method="_on_btn_quit_pressed"]

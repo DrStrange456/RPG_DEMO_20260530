@@ -3311,6 +3311,7 @@ visible = false
 visible = false
 
 [node name="pause_ui" parent="UI/WindowContainer" unique_id=252582373 instance=ExtResource("8_32xvi")]
+visible = false
 
 [node name="World" type="Node2D" parent="." unique_id=1837297623]
 

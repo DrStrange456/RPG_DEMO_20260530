@@ -1,3 +1,4 @@
+class_name popup_ui
 extends Control
 
 @export var toggle_action := "toggle_popup"
@@ -15,7 +16,7 @@ extends Control
 @export var idle_scale_amount := 1.03
 @export var idle_duration := 0.75
 
-@onready var sprite: Sprite2D = $WindowContainer/InventoryBg
+@onready var sprite: Sprite2D = $InventoryBg
 
 var is_open := false
 

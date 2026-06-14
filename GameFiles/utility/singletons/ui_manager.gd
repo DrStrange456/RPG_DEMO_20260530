@@ -30,7 +30,8 @@ func _ready():
 
 func _unhandled_input(event):
 	if event.is_action_pressed("mapped_quick_open_inventory"):
-		open_inventory()
+		#open_inventory()
+		pass
 	elif event.is_action_pressed("mapped_quick_open_character"):
 		open_character()
 	elif event.is_action_pressed("ui_cancel"):

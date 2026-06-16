@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://brg2i6027pst4" path="res://scenes/UI/pause_ui.gd" id="1_o2sb4"]
 [ext_resource type="Texture2D" uid="uid://v2hhjfa0iidd" path="res://assets/UI/A-MyFiles/pause_ui.PNG" id="1_si5h2"]
 [ext_resource type="Texture2D" uid="uid://b7w24yhlxx11a" path="res://assets/UI/Pause/Header.png" id="2_o2sb4"]
+[ext_resource type="Texture2D" uid="uid://dpcvir4pdno1q" path="res://assets/UI/A-MyFiles/portrait.PNG" id="4_y8qm2"]
+[ext_resource type="Texture2D" uid="uid://c2qyjkhovdcji" path="res://assets/UI/A-MyFiles/resources.PNG" id="5_pugri"]
 
 [node name="pause_ui" type="Control" unique_id=252582373]
 layout_mode = 3
@@ -29,6 +31,16 @@ position = Vector2(586, 71)
 scale = Vector2(0.32333323, 0.28389835)
 texture = ExtResource("2_o2sb4")
 
+[node name="Portrait" type="Sprite2D" parent="PopupRoot" unique_id=1664820825]
+position = Vector2(728, 251)
+scale = Vector2(0.80038023, 0.7847222)
+texture = ExtResource("4_y8qm2")
+
+[node name="Resources" type="Sprite2D" parent="PopupRoot" unique_id=1469223888]
+position = Vector2(725, 456.00003)
+scale = Vector2(0.62560385, 0.5385852)
+texture = ExtResource("5_pugri")
+
 [node name="Buttons" type="Node2D" parent="PopupRoot" unique_id=745872755]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PopupRoot/Buttons" unique_id=687211834]
@@ -39,32 +51,38 @@ offset_bottom = 505.0
 theme_override_constants/separation = 11
 
 [node name="btnNEW" type="Button" parent="PopupRoot/Buttons/VBoxContainer" unique_id=659544927]
-custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
-text = "NEW"
+size_flags_vertical = 3
+text = "Character"
 
 [node name="btnSAVE" type="Button" parent="PopupRoot/Buttons/VBoxContainer" unique_id=389315623]
-custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
-text = "SAVE"
+size_flags_vertical = 3
+text = "Inventory"
 
 [node name="btnLOAD" type="Button" parent="PopupRoot/Buttons/VBoxContainer" unique_id=286855200]
-custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
-text = "LOAD"
+size_flags_vertical = 3
+text = "Crafting"
 
 [node name="btnSETTINGS" type="Button" parent="PopupRoot/Buttons/VBoxContainer" unique_id=220838603]
-custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
+size_flags_vertical = 3
 text = "SETTINGS"
 
 [node name="btnQUIT" type="Button" parent="PopupRoot/Buttons/VBoxContainer" unique_id=2009693529]
-custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
+size_flags_vertical = 3
 text = "QUIT"
+
+[node name="btnDEV" type="Button" parent="PopupRoot/Buttons/VBoxContainer" unique_id=2139495033]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Developer"
 
 [connection signal="pressed" from="PopupRoot/Buttons/VBoxContainer/btnNEW" to="." method="_on_btn_new_pressed"]
 [connection signal="pressed" from="PopupRoot/Buttons/VBoxContainer/btnSAVE" to="." method="_on_btn_save_pressed"]
 [connection signal="pressed" from="PopupRoot/Buttons/VBoxContainer/btnLOAD" to="." method="_on_btn_load_pressed"]
 [connection signal="pressed" from="PopupRoot/Buttons/VBoxContainer/btnSETTINGS" to="." method="_on_btn_settings_pressed"]
 [connection signal="pressed" from="PopupRoot/Buttons/VBoxContainer/btnQUIT" to="." method="_on_btn_quit_pressed"]
+[connection signal="pressed" from="PopupRoot/Buttons/VBoxContainer/btnDEV" to="." method="_on_btn_dev_pressed"]

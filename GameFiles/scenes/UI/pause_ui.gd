@@ -22,6 +22,12 @@ func _on_btn_quit_pressed() -> void:
 	get_tree().quit()
 
 
+func _on_btn_dev_pressed() -> void:
+	pass # Replace with function body.
+
+
+
+
 
 
 # Bottom

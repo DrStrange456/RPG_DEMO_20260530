@@ -35,11 +35,13 @@ texture = ExtResource("2_o2sb4")
 position = Vector2(728, 251)
 scale = Vector2(0.80038023, 0.7847222)
 texture = ExtResource("4_y8qm2")
+metadata/_edit_lock_ = true
 
 [node name="Resources" type="Sprite2D" parent="PopupRoot" unique_id=1469223888]
 position = Vector2(725, 456.00003)
 scale = Vector2(0.62560385, 0.5385852)
 texture = ExtResource("5_pugri")
+metadata/_edit_lock_ = true
 
 [node name="Buttons" type="Node2D" parent="PopupRoot" unique_id=745872755]
 
@@ -68,12 +70,12 @@ text = "Crafting"
 [node name="btnSETTINGS" type="Button" parent="PopupRoot/Buttons/VBoxContainer" unique_id=220838603]
 layout_mode = 2
 size_flags_vertical = 3
-text = "SETTINGS"
+text = "Settings"
 
 [node name="btnQUIT" type="Button" parent="PopupRoot/Buttons/VBoxContainer" unique_id=2009693529]
 layout_mode = 2
 size_flags_vertical = 3
-text = "QUIT"
+text = "Quit"
 
 [node name="btnDEV" type="Button" parent="PopupRoot/Buttons/VBoxContainer" unique_id=2139495033]
 layout_mode = 2

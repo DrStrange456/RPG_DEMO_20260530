@@ -99,13 +99,12 @@ offset_top = 53.0
 offset_right = 331.0
 offset_bottom = 93.0
 
-[node name="btnSort_Inv" type="Button" parent="PopupRoot/PlayerInventory/MainInventory" unique_id=830728715]
-layout_mode = 0
-offset_left = 180.0
-offset_top = 220.0
-offset_right = 220.0
-offset_bottom = 240.0
+[node name="btnSort_Inv" type="Button" parent="PopupRoot/PlayerInventory" unique_id=830728715]
+offset_left = 471.0
+offset_top = 273.0
+offset_right = 511.0
+offset_bottom = 293.0
 theme_override_font_sizes/font_size = 8
 text = "SORT"
 
-[connection signal="pressed" from="PopupRoot/PlayerInventory/MainInventory/btnSort_Inv" to="PopupRoot/PlayerInventory/MainInventory" method="_on_btn_sort_inv_pressed"]
+[connection signal="pressed" from="PopupRoot/PlayerInventory/btnSort_Inv" to="PopupRoot/PlayerInventory/MainInventory" method="_on_btn_sort_inv_pressed"]

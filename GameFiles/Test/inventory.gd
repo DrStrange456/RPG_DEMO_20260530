@@ -5,17 +5,13 @@ extends popup_ui
 var inventory : Array[OptiInventorySlot] = []
 
 
-#func _ready() -> void:
-	#main_inventory_container_ui = find_anywhere("MainInventoryController")
-	#Events.connect("refresh_market_inv_ui", Callable(_refresh_inventory_items_signal))
-	#_load_slots_from_save(main_inventory_container_ui)
-
 
 
 func initialize():
 	main_inventory_container_ui = find_anywhere("MainInventoryController")
 	Events.connect("refresh_market_inv_ui", Callable(_refresh_inventory_items_signal))
 	_load_slots_from_save(main_inventory_container_ui)
+
 
 
 func bind_inventory(inv,gc: GridContainer):
@@ -40,17 +36,19 @@ func _load_slots_from_save(grid_container: GridContainer):
 				inventory[j].set_item(load(GameManager.PLAYER_INVENTORY_TEST[j][0]))
 				inventory[j].set_quantity(GameManager.PLAYER_INVENTORY_TEST[j][1])
 
-func _on_btn_sort_inv_pressed() -> void:
-	StorageManager.sort_and_combine_inventory_Inv(GameManager.PLAYER_INVENTORY_TEST)
-	AudioController.play_sound("sfx_slots_reorder")
-	_refresh_inventory_items(main_inventory_container_ui)
-
 func _refresh_inventory_items(grid_container: GridContainer):
 	_load_slots_from_save(grid_container)
 
 func _refresh_inventory_items_signal():
 	_load_slots_from_save(main_inventory_container_ui)
 
+
+
+
+func _on_btn_sort_inv_pressed() -> void:
+	StorageManager.sort_and_combine_inventory_Inv(GameManager.PLAYER_INVENTORY_TEST)
+	AudioController.play_sound("sfx_slots_reorder")
+	_refresh_inventory_items(main_inventory_container_ui)
 
 
 

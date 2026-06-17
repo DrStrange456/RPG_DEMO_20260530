@@ -41,6 +41,11 @@ func _ready() -> void:
 	popup.position = base_position
 	popup.scale = Vector2.ZERO
 	popup.modulate.a = 0.0
+	
+	var method_name := "initialize"
+	
+	if has_method(method_name):
+		call(method_name)
 
 
 func _unhandled_input(event: InputEvent) -> void:

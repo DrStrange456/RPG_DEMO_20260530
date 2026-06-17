@@ -13,7 +13,6 @@ func initialize():
 	_load_slots_from_save(main_inventory_container_ui)
 
 
-
 func bind_inventory(inv,gc: GridContainer):
 	#var ui_slots = main_inventory_container_ui.get_children()
 	var ui_slots = gc.get_children()

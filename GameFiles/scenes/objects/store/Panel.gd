@@ -7,4 +7,5 @@ extends Panel
 #const ItemClass = preload("res://GameData/NewInventory/item.gd")
 
 func _physics_process(_delta):
-	$TextureRect.texture = load("res://assets/icons/" + typ + ".png")
+	if typ:
+		$TextureRect.texture = load("res://assets/icons/" + typ + ".png")

@@ -49,6 +49,7 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if toggle_action == "": return
 	if event.is_action_pressed(toggle_action):
 		toggle_popup()
 

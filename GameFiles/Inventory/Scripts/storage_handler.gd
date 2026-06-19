@@ -517,6 +517,49 @@ func try_add_item_to_inventory(inventory: Dictionary, item_name: String, quantit
 
 	return quantity
 
+func try_add_item_to_container(container: Array, item_name: String, quantity: int) -> int:
+	var res = get_resource_by_name(item_name)
+	var item_path = res.resource_path
+	var item = load(item_path)
+	var max_stack = item.max_stack
+
+	# Fill existing stacks
+	for slot_ui in container:
+		if slot_ui.slot.item == null:
+			continue
+
+		if slot_ui.slot.item.resource_path == item_path:
+			var space = max_stack - slot_ui.slot.quantity
+
+			if space > 0:
+				var add_amount = min(space, quantity)
+
+				slot_ui.slot.set_quantity(
+					slot_ui.slot.quantity + add_amount
+				)
+
+				quantity -= add_amount
+
+				if quantity <= 0:
+					return 0
+
+	# Fill empty slots
+	for slot_ui in container:
+
+		if slot_ui.slot.item == null:
+
+			var stack_size = min(max_stack, quantity)
+
+			slot_ui.slot.set_item(item)
+			slot_ui.slot.set_quantity(stack_size)
+
+			quantity -= stack_size
+
+			if quantity <= 0:
+				return 0
+
+	return quantity
+
 func is_space_avail_in_inventory(item_name: String, amount: int, inventory: Dictionary)->bool:
 	var res = get_resource_by_name(item_name)
 	var item_path = res.resource_path
@@ -699,6 +742,125 @@ func collect_similar_from_chest(storage_slots: Array, inventory: Dictionary) -> 
 					chest_slot.qty_label.text = ""
 
 				break  # move to next inventory slot
+
+### - Transfer Like Items to StorageS
+func collect_similar_to_chest(storage_slots: Array, inventory: Dictionary) -> void:
+
+	# Build list of item types already in storage
+	var item_types := []
+
+	for chest_slot in storage_slots:
+		if chest_slot.slot.item == null:
+			continue
+
+		var item_path = chest_slot.slot.item.resource_path
+
+		if not item_types.has(item_path):
+			item_types.append(item_path)
+
+	# Process each item type
+	for item_path in item_types:
+
+		var item_res = load(item_path)
+		var max_stack = item_res.max_stack
+
+		# PASS 1 - Fill existing chest stacks
+		for chest_slot in storage_slots:
+
+			if chest_slot.slot.item == null:
+				continue
+
+			if chest_slot.slot.item.resource_path != item_path:
+				continue
+
+			var space = max_stack - chest_slot.slot.quantity
+
+			if space <= 0:
+				continue
+
+			# Pull from inventory
+			for key in inventory.keys():
+
+				var inv_slot = inventory[key]
+
+				if inv_slot[0] != item_path:
+					continue
+
+				var inv_qty = int(inv_slot[1])
+
+				if inv_qty <= 0:
+					continue
+
+				var transfer = min(space, inv_qty)
+
+				chest_slot.slot.set_quantity(
+					chest_slot.slot.quantity + transfer
+				)
+
+				inventory[key][1] = inv_qty - transfer
+
+				if inventory[key][1] <= 0:
+					inventory[key] = [null, 0, true]
+
+				space -= transfer
+
+				if space <= 0:
+					break
+
+		# PASS 2 - Fill empty chest slots
+		for chest_slot in storage_slots:
+
+			if chest_slot.slot.item != null:
+				continue
+
+			for key in inventory.keys():
+
+				var inv_slot = inventory[key]
+
+				if inv_slot[0] != item_path:
+					continue
+
+				var inv_qty = int(inv_slot[1])
+
+				if inv_qty <= 0:
+					continue
+
+				var transfer = min(max_stack, inv_qty)
+
+				chest_slot.slot.set_item(load(item_path))
+				chest_slot.slot.set_quantity(transfer)
+
+				inventory[key][1] = inv_qty - transfer
+
+				if inventory[key][1] <= 0:
+					inventory[key] = [null, 0, true]
+
+				break
+
+### - Transfer All Items to Storage
+func move_all_to_container(inventory: Dictionary, container: Array):
+
+	for slot_index in inventory:
+
+		var slot_data = inventory[slot_index]
+
+		if slot_data[0] == null:
+			continue
+
+		var item_path = slot_data[0]
+		var qty = slot_data[1]
+
+		var remaining = StorageManager.try_add_item_to_container(
+			container,
+			item_path,
+			int(qty)
+		)
+
+		if remaining == 0:
+			inventory[slot_index][0] = null
+			inventory[slot_index][1] = 0
+		else:
+			inventory[slot_index][1] = remaining
 
 
 

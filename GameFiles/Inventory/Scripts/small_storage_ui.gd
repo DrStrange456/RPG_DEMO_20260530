@@ -61,13 +61,30 @@ func _on_btn_sort_inv_pressed() -> void:
 	_refresh_inventory_items()
 
 func _on_btn_transfer_all_pressed() -> void:
-	StorageManager.move_all_to_inventory(test_container.get_children(),GameManager.PLAYER_INVENTORY_TEST)
+	StorageManager.move_all_to_inventory(
+		test_container.get_children(),
+		GameManager.PLAYER_INVENTORY_TEST)
 	_refresh_inventory_items()
 
 func _on_btn_transfer_like_pressed() -> void:
-	StorageManager.collect_similar_from_chest(test_container.get_children(),GameManager.PLAYER_INVENTORY_TEST)
+	StorageManager.collect_similar_from_chest(
+		test_container.get_children(),
+		GameManager.PLAYER_INVENTORY_TEST)
 	_refresh_inventory_items()
 
+
+func _on_btn_transfer_like_to_strg_pressed() -> void:
+	StorageManager.collect_similar_to_chest(
+		test_container.get_children(),
+		GameManager.PLAYER_INVENTORY_TEST)
+	_refresh_inventory_items()
+
+
+func _on_btn_transfer_all_to_strg_pressed() -> void:
+	StorageManager.move_all_to_container(
+		GameManager.PLAYER_INVENTORY_TEST,
+		test_container.get_children())
+	_refresh_inventory_items()
 
 
 

@@ -127,20 +127,38 @@ indx = 5
 [node name="OptionButtons" type="Node2D" parent="." unique_id=1766532277]
 
 [node name="btnTransferAll" type="Button" parent="OptionButtons" unique_id=1130572704]
-self_modulate = Color(1, 1, 1, 0)
-offset_left = 497.0
-offset_top = 249.0
-offset_right = 556.5
-offset_bottom = 295.5
+self_modulate = Color(2.6933784, 8.539971, 8.539971, 1)
+offset_left = 498.5
+offset_top = 102.0
+offset_right = 558.0
+offset_bottom = 148.5
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 8
 
 [node name="btnTransferLike" type="Button" parent="OptionButtons" unique_id=1431429418]
-self_modulate = Color(1, 1, 1, 0)
-offset_left = 496.0
-offset_top = 178.5
-offset_right = 555.0
-offset_bottom = 225.5
+self_modulate = Color(7.7925534, 4.1170897, 7.7925534, 1)
+offset_left = 498.5
+offset_top = 50.0
+offset_right = 557.5
+offset_bottom = 97.0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 8
+
+[node name="btnTransferLike_toStrg" type="Button" parent="OptionButtons" unique_id=1411055599]
+self_modulate = Color(7.7925534, 4.1170897, 7.7925534, 1)
+offset_left = 494.5
+offset_top = 178.0
+offset_right = 553.5
+offset_bottom = 225.0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 8
+
+[node name="btnTransferAll_toStrg" type="Button" parent="OptionButtons" unique_id=423205541]
+self_modulate = Color(2.6933784, 8.539971, 8.539971, 1)
+offset_left = 494.5
+offset_top = 246.0
+offset_right = 554.0
+offset_bottom = 292.5
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 8
 
@@ -164,5 +182,7 @@ theme_override_font_sizes/font_size = 8
 
 [connection signal="pressed" from="OptionButtons/btnTransferAll" to="." method="_on_btn_transfer_all_pressed"]
 [connection signal="pressed" from="OptionButtons/btnTransferLike" to="." method="_on_btn_transfer_like_pressed"]
+[connection signal="pressed" from="OptionButtons/btnTransferLike_toStrg" to="." method="_on_btn_transfer_like_to_strg_pressed"]
+[connection signal="pressed" from="OptionButtons/btnTransferAll_toStrg" to="." method="_on_btn_transfer_all_to_strg_pressed"]
 [connection signal="pressed" from="OptionButtons/btnSort_Inv" to="." method="_on_btn_sort_inv_pressed"]
 [connection signal="pressed" from="OptionButtons/btnSort_Chest" to="." method="_on_btn_sort_chest_pressed"]

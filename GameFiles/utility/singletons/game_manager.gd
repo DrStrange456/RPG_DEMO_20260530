@@ -16,7 +16,7 @@ var glSlotUI = preload("res://Inventory/inventory_slot_ui.tscn")
 var glSlot = preload("res://Inventory/Scripts/inventory_slot_ui.gd")
 
 var glChest = preload("res://Inventory/StorageUI/StorageUI_Sm.tscn")
-var glChest_lrg = preload("res://Inventory/StorageUI/StorageUI_Lg.tscn")
+var glChest_lrg = preload("res://Inventory/StorageUI/StorageUI_Lrg.tscn")
 
 # TIME/DATE TRACKING
 var gl_TIME: String

@@ -55,8 +55,8 @@ func _slot_gui_input(event: InputEvent, slot: InvSlotUI):
 		if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
 			var context = {
 			"slot_clicked": slot,
-			"source": get_parent().inventory_container_ui,
-			"container": get_parent().large_container,
+			"source": get_parent().get_parent().inventory_container_ui,
+			"container": get_parent().get_parent().large_container,
 			"slot_index": slot.indx
 			}
 			StorageManager.move_item_to_inventory(context)

@@ -12,7 +12,7 @@ func _slot_gui_input(event: InputEvent, slot: InvSlotUI):
 		if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
 			var context = {
 				"source": self,
-				"container": get_parent().test_container,
+				"container": get_parent().get_parent().test_container,
 				"slot_index": slot.indx
 			}
 			StorageManager.move_item_to_storage(context)

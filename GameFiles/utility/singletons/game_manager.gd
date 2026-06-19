@@ -56,6 +56,27 @@ var PLAYER_INVENTORY_TEST: Dictionary = {
 		#15: [null, 0, true],
 }
 
+var PLAYER_INVENTORY_TEST_LARGE: Dictionary = {
+		0: ["res://resources/seeds_turnip.tres", 98, true],
+		1: ["res://resources/seeds_strawberry.tres", 99, true],
+		2: ["res://resources/weapon_sword_fire.tres", 1, true],
+		3: [null, 0, true],
+		4: ["res://resources/seeds_tomato.tres", 65, true],
+		5: ["res://resources/seeds_carrot.tres", 10, true],
+		6: ["res://resources/tool_axe.tres", 1, true],
+		7: ["res://resources/tool_pick.tres", 1, true],
+		8: ["res://resources/weapon_sword1.tres", 1, true],
+		9: [null, 0, true],
+		10: [null, 0, true],
+		11: [null, 0, true],
+		12: ["res://resources/seeds_tomato.tres", 90, true],
+		13: [null, 0, true],
+		14: ["res://resources/seeds_strawberry.tres", 35, true],
+		15: [null, 0, true],
+		16: [null, 0, true],
+		17: [null, 0, true],
+}
+
 var STORAGE_TEST: Dictionary = {
 		0: ["res://resources/crop_carrot.tres", 98, true],
 		1: ["res://resources/crop_tomato.tres", 97, true],
@@ -63,18 +84,18 @@ var STORAGE_TEST: Dictionary = {
 		3: ["res://resources/seeds_strawberry.tres", 90, true],
 		4: ["res://resources/seeds_turnip.tres", 90, true],
 		5: [null, 0, true],
-		6: [null, 0, true],
-		7: [null, 0, true],
-		8: ["res://resources/seeds_strawberry.tres", 90, true],
-		9: [null, 0, true],
-		10: [null, 0, true],
-		11: [null, 0, true],
-		12: [null, 0, true],
-		13: [null, 0, true],
-		14: [null, 0, true],
-		15: [null, 0, true],
-		16: ["res://resources/crop_carrot.tres", 98, true],
-		17: [null, 0, true],
+		#6: [null, 0, true],
+		#7: [null, 0, true],
+		#8: ["res://resources/seeds_strawberry.tres", 90, true],
+		#9: [null, 0, true],
+		#10: [null, 0, true],
+		#11: [null, 0, true],
+		#12: [null, 0, true],
+		#13: [null, 0, true],
+		#14: [null, 0, true],
+		#15: [null, 0, true],
+		#16: ["res://resources/crop_carrot.tres", 98, true],
+		#17: [null, 0, true],
 }
 
 var STORAGE_TEST_LARGE: Dictionary = {

@@ -54,7 +54,7 @@ func _slot_gui_input(event: InputEvent, slot: InvSlotUI):
 		if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
 			var context = {
 				"slot_clicked": slot,
-				"source": get_parent().inventory_container_ui,
+				"source": get_parent().get_parent().inventory_container_ui,
 				"container": self,
 				"slot_index": slot.indx
 			}

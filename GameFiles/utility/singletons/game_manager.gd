@@ -15,8 +15,8 @@ var glSlotPrev = preload("res://scenes/objects/slot_preview.tscn")
 var glSlotUI = preload("res://Inventory/inventory_slot_ui.tscn")
 var glSlot = preload("res://Inventory/Scripts/inventory_slot_ui.gd")
 
-var glChest = preload("res://Inventory/StorageUI/StorageUI.tscn")
-var glChest_lrg = preload("res://Inventory/StorageUI/StorageUI_Lrg.tscn")
+var glChest = preload("res://Inventory/StorageUI/StorageUI_Sm.tscn")
+var glChest_lrg = preload("res://Inventory/StorageUI/StorageUI_Lg.tscn")
 
 # TIME/DATE TRACKING
 var gl_TIME: String
@@ -63,18 +63,18 @@ var STORAGE_TEST: Dictionary = {
 		3: ["res://resources/seeds_strawberry.tres", 90, true],
 		4: ["res://resources/seeds_turnip.tres", 90, true],
 		5: [null, 0, true],
-		#6: [null, 0, true],
-		#7: [null, 0, true],
-		#8: [null, 0, true],
-		#9: [null, 0, true],
-		#10: [null, 0, true],
-		#11: [null, 0, true],
-		#12: [null, 0, true],
-		#13: [null, 0, true],
-		#14: [null, 0, true],
-		#15: [null, 0, true],
-		#16: [null, 0, true],
-		#17: [null, 0, true],
+		6: [null, 0, true],
+		7: [null, 0, true],
+		8: ["res://resources/seeds_strawberry.tres", 90, true],
+		9: [null, 0, true],
+		10: [null, 0, true],
+		11: [null, 0, true],
+		12: [null, 0, true],
+		13: [null, 0, true],
+		14: [null, 0, true],
+		15: [null, 0, true],
+		16: ["res://resources/crop_carrot.tres", 98, true],
+		17: [null, 0, true],
 }
 
 var STORAGE_TEST_LARGE: Dictionary = {

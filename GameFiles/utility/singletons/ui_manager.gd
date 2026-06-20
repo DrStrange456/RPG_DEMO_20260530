@@ -21,6 +21,7 @@ var current_window: Control = null
 var inventory_open := false
 var small_storage_open: bool = false
 var large_storage_open: bool = false
+var merch_open: bool = false
 var current_tween: Tween
 
 var active_sell_ui: bool
@@ -38,6 +39,7 @@ func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	Events.connect("try_interact_sm_chest", Callable(open_small_chest))
 	Events.connect("try_interact_lg_chest", Callable(open_large_chest))
+	Events.connect("try_interact_merchant", Callable(open_merchant))
 
 
 
@@ -241,7 +243,17 @@ func open_large_chest():
 		large_storage_open = true
 		get_tree().paused = true
 
-
+func open_merchant():
+	if merch_open:
+		var merch = find_anywhere("new_general_store")
+		merch.close_popup()
+		merch_open = false
+		get_tree().paused = false
+	else:
+		var merch = find_anywhere("new_general_store")
+		merch.open_popup()
+		merch_open = true
+		get_tree().paused = true
 
 
 

@@ -54,7 +54,6 @@ func _input(_event: InputEvent) -> void:
 			self.visible = false
 			UiManager.active_ui = null
 			UiManager.open_small_chest()
-			#GameManager._on_pause_closed()
 			get_viewport().set_input_as_handled()  # Mark event as handled
 
 

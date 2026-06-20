@@ -20,6 +20,13 @@ var merchant_wares: Dictionary = {
 func initialize():
 	_load_merchant_wares()
 
+func _input(_event: InputEvent) -> void:
+	if visible:
+		if Input.is_action_pressed("ui_cancel"):
+			self.visible = false
+			UiManager.active_ui = null
+			UiManager.open_merchant()
+			get_viewport().set_input_as_handled()  # Mark event as handled
 
 
 

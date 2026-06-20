@@ -13,31 +13,12 @@ func _ready() -> void:
 
 
 func _input(_event: InputEvent) -> void:
-	
-	# FIXME: This should be handled in the UI_Manager autoload
-	
 	if plyr and player_within_range:
-		if Input.is_action_just_pressed("ui_cancel"):
-			# ignore if market sell ui
-			if UiManager.active_sell_ui: 
-				return
-			# 
-			var tod = find_anywhere("TimeOfDayUI")
-			tod.visible = true
-			Events.emit_signal("show_buttons_and_tod")
-			GameManager.glPlayerRef._attempt_exit_store()
-			get_viewport().set_input_as_handled()  # Mark event as handled
-		
 		if Input.is_action_just_pressed("activate"):
 			var gen_str = find_anywhere("general_store")
-			var tod = find_anywhere("TimeOfDayUI")
-			gen_str.visible = true
-			tod.visible = false
-			Events.emit_signal("hide_buttons_and_tod")
+			Events.emit_signal("try_interact_merchant")
 			UiManager.active_ui = gen_str
-			GameManager.glPlayerRef.state = Enum.State.SHOP
 			get_viewport().set_input_as_handled()  # Mark event as handled
-
 
 
 func is_player_interacting()->bool:
@@ -54,10 +35,6 @@ func _set_market_closed():
 func _set_market_open():
 	if !$interact_icon.visible:
 		$interact_icon.visible = true
-
-
-
-
 
 func interact_enabled(body: Node2D):
 	if body.is_in_group("player"):

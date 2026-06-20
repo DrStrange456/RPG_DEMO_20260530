@@ -1,8 +1,10 @@
 extends popup_ui
 
 @onready var inventory_container_ui: GridContainer = $PopupRoot/InventorySlotContainer
-@onready var small_container: TestContainerLarge = $PopupRoot/LargeContainer
-@onready var test_container: TestContainerLarge = $PopupRoot/LargeContainer
+@onready var small_container: TestContainer = $PopupRoot/SmallContainer
+@onready var test_container: TestContainer = $PopupRoot/SmallContainer
+#@onready var large_container: TestContainerLarge = $LargeContainer
+
 
 var inventory : Array[OptiInventorySlot] = []
 
@@ -11,6 +13,7 @@ var inventory : Array[OptiInventorySlot] = []
 
 func initialize():
 	_load_slots_from_save()
+
 func bind_inventory(inv):
 	var ui_slots = $PopupRoot/InventorySlotContainer.get_children()
 	for i in ui_slots.size():
@@ -50,8 +53,10 @@ func _input(_event: InputEvent) -> void:
 		if Input.is_action_pressed("ui_cancel"):
 			self.visible = false
 			UiManager.active_ui = null
-			GameManager._on_pause_closed()
+			UiManager.open_small_chest()
+			#GameManager._on_pause_closed()
 			get_viewport().set_input_as_handled()  # Mark event as handled
+
 
 
 func _on_btn_sort_chest_pressed() -> void:
@@ -60,6 +65,8 @@ func _on_btn_sort_chest_pressed() -> void:
 func _on_btn_sort_inv_pressed() -> void:
 	StorageManager.sort_and_combine_inventory_Inv(GameManager.PLAYER_INVENTORY_TEST)
 	_refresh_inventory_items()
+
+
 
 func _on_btn_transfer_all_pressed() -> void:
 	StorageManager.move_all_to_inventory(
@@ -73,13 +80,11 @@ func _on_btn_transfer_like_pressed() -> void:
 		GameManager.PLAYER_INVENTORY_TEST)
 	_refresh_inventory_items()
 
-
 func _on_btn_transfer_like_to_strg_pressed() -> void:
 	StorageManager.collect_similar_to_chest(
 		test_container.get_children(),
 		GameManager.PLAYER_INVENTORY_TEST)
 	_refresh_inventory_items()
-
 
 func _on_btn_transfer_all_to_strg_pressed() -> void:
 	StorageManager.move_all_to_container(

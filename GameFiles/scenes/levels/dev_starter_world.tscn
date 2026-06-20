@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://7wr7y06ddii6" path="res://characters/bat/bat.tscn" id="10_q502d"]
 [ext_resource type="PackedScene" uid="uid://c4e6rk11j2cs7" path="res://scenes/objects/storage_containers/chest_small.tscn" id="11_4fb74"]
 [ext_resource type="PackedScene" uid="uid://bnkp1ls4ltgmc" path="res://scenes/objects/market.tscn" id="11_cxtfx"]
+[ext_resource type="PackedScene" uid="uid://bducrb47y028v" path="res://scenes/objects/storage_containers/chest_large.tscn" id="17_gh451"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0n0ph"]
 texture = ExtResource("3_kpaqn")
@@ -3322,6 +3323,7 @@ toggle_action = ""
 
 [node name="StorageUI_Large" parent="UI/WindowContainer" unique_id=1675507972 instance=ExtResource("10_nfebl")]
 visible = false
+toggle_action = ""
 
 [node name="World" type="Node2D" parent="." unique_id=1837297623]
 
@@ -3395,6 +3397,9 @@ position = Vector2(2378, 209)
 
 [node name="chest_small" parent="World/Storage_Bin" unique_id=1869348280 instance=ExtResource("11_4fb74")]
 position = Vector2(1281, 58)
+
+[node name="chest_large" parent="World/Storage_Bin" unique_id=1534628734 instance=ExtResource("17_gh451")]
+position = Vector2(1022, 63)
 
 [connection signal="pressed" from="UI/HUD/btnWEAPON" to="." method="_on_btn_weapon_pressed"]
 [connection signal="pressed" from="UI/HUD/btnTOOL" to="." method="_on_btn_tool_pressed"]

@@ -51,7 +51,8 @@ func _input(_event: InputEvent) -> void:
 		if Input.is_action_pressed("ui_cancel"):
 			self.visible = false
 			UiManager.active_ui = null
-			GameManager._on_pause_closed()
+			UiManager.open_large_chest()
+			#GameManager._on_pause_closed()
 			get_viewport().set_input_as_handled()  # Mark event as handled
 
 

@@ -19,3 +19,6 @@ signal update_item_button
 
 signal hide_buttons_and_tod
 signal show_buttons_and_tod
+
+signal try_interact_sm_chest
+signal try_interact_lg_chest
